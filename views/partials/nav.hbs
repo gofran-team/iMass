@@ -1,0 +1,36 @@
+<nav id="menu" class="navbar navbar-expand-lg navbar-dark px-5">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse py-1" id="navbarNavAltMarkup">
+    <a class="navbar-brand" href="/">
+      <div id="logo-menu"></div>
+    </a>
+    <div id="menuItems" class="navbar-nav ml-auto">
+      {{#unless user}}
+      <a class="authBtn nav-item nav-link btn btn-light btn-sm mr-2" href="/signup">Registrarse</a>
+      <a class="authBtn nav-item nav-link btn btn-light btn-sm" href="/login">Iniciar sesión</a>
+      {{/unless}}
+      {{#if user}}
+      <a class="nav-item nav-link ml-auto mr-4" href="/favorites"><i class="fas fa-church mr-2"></i>Mis templos</a>
+      {{/if}}
+    </div>
+    {{#if user}}
+    <div id="userProfile" class="dropdown ml-auto">
+      <div class="navbar-text dropdown-toggle" data-toggle="dropdown">
+        {{#unless user.image}}
+        <i class="fas fa-user mr-1"></i>
+        {{/unless}}
+        {{#if user.image}}
+        <img src="{{user.image}}" alt="Profile image" class="mr-2 rounded-circle">
+        {{/if}}
+        {{user.username}}
+      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="/logout">Salir</a>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</nav>

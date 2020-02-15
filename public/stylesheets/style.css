@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+body {
+  font: 15px "Lato", sans-serif; }
+
+a {
+  color: #00b7ff; }
+
+#menu {
+  background-color: #111; }
+  #menu #logo-menu {
+    background-image: url("./../images/logo-menu.svg");
+    width: 62.5px;
+    height: 23.125px; }
+  #menu .authBtn {
+    background-color: transparent; }
+  #menu #menuItems {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; }
+
+#userProfile {
+  cursor: pointer; }
+  #userProfile img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+
+.auth-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 60px;
+  background-color: rgba(200, 200, 200, 0.1);
+  box-shadow: 0 0 5px #ccc; }
+
+.alert {
+  margin: 0;
+  border-radius: 0;
+  transition: all 0.5s ease-in;
+  bottom: -3.5em; }
+
+.showAlert {
+  bottom: 0; }
+
+/*# sourceMappingURL=style.css.map */
