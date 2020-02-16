@@ -3,13 +3,17 @@ const mongoose = require("mongoose");
 const templeSchema = new mongoose.Schema(
   {
     name: String,
-    locality: String,
-    postalCode: String,
-    streetAddress: String,
-    latitude: Number,
-    longitude: Number,
+    address: {
+      locality: String,
+      postalCode: String,
+      streetAddress: String
+    },
+    location: {
+      latitude: Number,
+      longitude: Number
+    },
     description: String,
-    image: String,
+    image: String
   },
   {
     timestamps: true

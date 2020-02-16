@@ -16,11 +16,15 @@ const getTemples = async () => {
     temples = temples.filter(e => e.location);
     temples = temples.map(temple => ({
       name: temple.title,
-      locality: temple.address.locality,
-      postalCode: temple.address["postal-code"],
-      streetAddress: temple.address["street-address"],
-      latitude: temple.location.latitude,
-      longitude: temple.location.longitude,
+      address: {
+        locality: temple.address.locality,
+        postalCode: temple.address["postal-code"],
+        streetAddress: temple.address["street-address"]
+      },
+      location: {
+        latitude: temple.location.latitude,
+        longitude: temple.location.longitude
+      },
       description: temple.organization["organization-desc"]
     }));
   } catch (error) {
