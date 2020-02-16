@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const templeSchema = new mongoose.Schema(
   {
-    _id: ObjectId,
     name: String,
     locality: String,
     postalCode: String,
