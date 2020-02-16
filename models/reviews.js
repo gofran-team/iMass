@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema(
   {
-    _id: ObjectId,
-    userId: ObjectId,
-    templeId: ObjectId,
+    userId: [ { type : Schema.Types.ObjectId, ref: 'User' } ],
+    templeId: [ { type : Schema.Types.ObjectId, ref: 'Temple' } ],
     rate: [Number],
     facilities: Number,
     cleanliness: Number,
