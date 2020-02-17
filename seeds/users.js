@@ -2,7 +2,7 @@ const { withDbConnection } = require("../lib/withDbConnection");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
-const users = ["Mateo"];
+const users = ["Mateo", "José", "Lucas", "Juan", "Pedro", "Jesús", "Judas"];
 
 users.forEach(user => {
   try {
