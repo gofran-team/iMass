@@ -2,10 +2,9 @@
 body {
   font: 15px "Lato", sans-serif; }
 
-  .body-size{
-    margin-left: 10vw;
-    margin-right: 10vw;
-  }
+.body-size {
+  margin-left: 10vw;
+  margin-right: 10vw; }
 
 a {
   color: #00b7ff; }
@@ -49,15 +48,25 @@ a {
 .showAlert {
   bottom: 0; }
 
-.best-average{
+.best-average {
   display: flex;
   width: 85vw;
-  margin-top: 4rem
-  }
+  margin-top: 2rem; }
 
-.size-cards{
+.size-cards {
   width: 15vw;
-  height: 35rem;
-}
+  height: 35rem; }
+
+.home-pic {
+  width: 85vw;
+  height: 60vh; }
+
+.card-size {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 /*# sourceMappingURL=style.css.map */
