@@ -1,5 +1,18 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<div class="best-average">
+{{#each temples}}
+<div class="card size-cards" style="width: 18rem;">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFxn0MkCoXSXiFlUr3iZEvb0VlKPizgfCJx6mlXXvU2Qiddi4-" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text"><p>{{this.description}}</p>
+    <a href="/temple" class="btn btn-primary">Go this church</a>
+  </div>
+</div>
+{{/each}}
+</div>
+
 {{#if user.facebookId}}
 <p>Hi, {{user.username}}. You come from Facebook!</p>
 {{/if}}

@@ -2,6 +2,11 @@
 body {
   font: 15px "Lato", sans-serif; }
 
+  .body-size{
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+
 a {
   color: #00b7ff; }
 
@@ -43,5 +48,16 @@ a {
 
 .showAlert {
   bottom: 0; }
+
+.best-average{
+  display: flex;
+  width: 85vw;
+  margin-top: 4rem
+  }
+
+.size-cards{
+  width: 15vw;
+  height: 35rem;
+}
 
 /*# sourceMappingURL=style.css.map */
