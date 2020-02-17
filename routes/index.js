@@ -9,12 +9,22 @@ router.get("/", (req, res, next) => {
   Temple.find().limit(5)
   .then(templeDB => {
     res.render('index', {temples: templeDB});
-    console.log(templeDB.name)
   })
   .catch(error => {
     console.log(error)
     next()
   })
+});
+
+router.get("/:id", (req, res, next) => {
+  Temple.findById(req.params.id)
+    .then(theTemple => {
+      res.render('temple', {temples: theTemple});
+    })
+    .catch(error => {
+      console.log(error)
+      next()
+    })
 });
 
 
