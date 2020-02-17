@@ -65,6 +65,7 @@ a {
   bottom: 0;
 }
 
+
 .best-average{
   display: flex;
   width: 85vw;
@@ -74,6 +75,11 @@ a {
 .size-cards{
   width: 15vw;
   height: 35rem;
+  margin: 5px;
+}
+
+.size-cards img{
+  border-radius: 50%;
 }
 
 .home-pic{
@@ -89,3 +95,4 @@ a {
   flex-direction: column;
   justify-content: space-between;
 }
+

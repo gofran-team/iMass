@@ -6,6 +6,12 @@ body {
   margin-left: 10vw;
   margin-right: 10vw; }
 
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 a {
   color: #00b7ff; }
 
@@ -55,7 +61,11 @@ a {
 
 .size-cards {
   width: 15vw;
-  height: 35rem; }
+  height: 35rem;
+  margin: 5px; }
+
+.size-cards img {
+  border-radius: 50%; }
 
 .home-pic {
   width: 85vw;
