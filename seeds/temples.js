@@ -5,7 +5,7 @@ const axios = require("axios");
 const getTemples = async () => {
   let temples;
 
-  // get information form the temples API
+  // get information from the temples API
   try {
     const response = await axios({
       method: "get",
