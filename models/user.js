@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Temple = mongoose.model("Temple");
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     username: String,
     password: String,
