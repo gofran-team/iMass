@@ -7,9 +7,7 @@ const getImages = async () => {
 
   // get all the temples from the data base
   try {
-    await withDbConnection(async () => {
-      temples = await Temple.find().limit(1);
-    });
+    temples = await Temple.find({ image: { $exists: false } });
   } catch (error) {
     console.log(error);
   }
@@ -30,23 +28,18 @@ const getImages = async () => {
         }
       });
       temple.image = response.data.items[0].link;
-      temple.save();
+      await withDbConnection(async () => await temple.save());
+      console.log(
+        `${temple.name} image added (${index + 1} of ${array.length})`
+      );
     } catch (error) {
-      console.log(error);
+      console.log(
+        error.response.status,
+        error.response.statusText,
+        `(${index + 1} of ${array.length})`
+      );
     }
-    console.log(`${temple.name} image added (${index + 1} of ${array.length})`);
   });
-
-  //
-  // try {
-  //   await withDbConnection(async () => {
-  //     await dropIfExists(Temple);
-  //     await Temple.create(temples);
-  //   });
-  //   console.log(`Temples created`);
-  // } catch (error) {
-  //   console.log(error);
-  // }
 };
 
-getImages();
+withDbConnection(async () => await getImages());
