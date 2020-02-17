@@ -6,12 +6,6 @@ body {
   margin-left: 10vw;
   margin-right: 10vw; }
 
-.home{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 a {
   color: #00b7ff; }
 

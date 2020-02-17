@@ -18,8 +18,8 @@ const getImages = async () => {
       const response = await axios({
         url: "https://www.googleapis.com/customsearch/v1",
         params: {
-          key: "AIzaSyBOBeP8nxkoGElwOGbvTBYvmJVrZkfTPok",
-          cx: "016807599423372473728:fckpvg5ppnl",
+          key: process.env.GOOGLE_KEY,
+          cx: process.env.GOOGLE_CX,
           q: temple.name,
           searchType: "image",
           fileType: "jpg",
