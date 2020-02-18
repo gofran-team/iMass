@@ -21,8 +21,8 @@ router.get("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   let {search} = req.body
   console.log(search)
-  Temple.find({name:search})
-    .limit(4)
+  Temple.find({name:{$regex: search, $options: 'i' }})
+    .limit()
     .then(templeDB => {
       res.render("temple" , { temples: templeDB });
     })
