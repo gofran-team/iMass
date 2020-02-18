@@ -22,4 +22,17 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+router.post("/", (req, res, next) => {
+  let {search} = req.body
+  Temple.find({name:{$regex: search, $options: 'i' }})
+    .limit()
+    .then(theTemple => {
+      res.render("temple" , { temples: theTemple });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
 module.exports = router;
