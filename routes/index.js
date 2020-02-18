@@ -3,10 +3,12 @@ const router = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Temple = require("../models/temple");
+const Review = require("../models/review");
+
 
 router.get("/", (req, res, next) => {
   Temple.find()
-    .limit(5)
+    .limit(4)
     .then(templeDB => {
       res.render("index", { temples: templeDB });
     })
@@ -16,20 +18,18 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/:id", (req, res, next) => {
-  Temple.findById(req.params.id)
-    .then(theTemple => {
-      res.render("temple", { temples: theTemple });
+router.post("/", (req, res, next) => {
+  let {search} = req.body
+  console.log(search)
+  Temple.find({name:search})
+    .limit(4)
+    .then(templeDB => {
+      res.render("temple" , { temples: templeDB });
     })
     .catch(error => {
       console.log(error);
       next();
     });
-});
-
-// delete/modify this route because it doesn't already exist
-router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("passport/private");
 });
 
 module.exports = router;

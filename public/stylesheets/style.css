@@ -52,7 +52,8 @@ a {
 .best-average {
   display: flex;
   width: 85vw;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  justify-content: space-around; }
 
 .size-cards {
   width: 15vw;
