@@ -20,6 +20,19 @@ router.get("/:id", (req, res, next) => {
         next();
       });
   });
+
+  router.post("/", (req, res, next) => {
+    let {search} = req.body
+    Temple.find({name:{$regex: search, $options: 'i' }})
+      .limit()
+      .then(theTemple => {
+        res.render("temple" , { temples: theTemple });
+      })
+      .catch(error => {
+        console.log(error);
+        next();
+      });
+  });
   
   // delete/modify this route because it doesn't already exist
   router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
