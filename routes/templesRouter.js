@@ -23,11 +23,11 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  let {search} = req.body
-  Temple.find({name:{$regex: search, $options: 'i' }})
+  let { search } = req.body;
+  Temple.find({ name: { $regex: search, $options: "i" } })
     .limit()
     .then(theTemple => {
-      res.render("temple" , { temples: theTemple });
+      res.render("temple", { temple: theTemple });
     })
     .catch(error => {
       console.log(error);
