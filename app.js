@@ -13,7 +13,7 @@ const passport = require("passport");
 const flash = require("connect-flash");
 
 mongoose
-  .connect("mongodb://localhost/imass", {
+  .connect(process.env.DBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

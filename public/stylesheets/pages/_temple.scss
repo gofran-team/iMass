@@ -1,0 +1,34 @@
+#templeHeader {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  margin-top: 1em;
+  color: white;
+  position: relative;
+
+  #infoTemple {
+    position: absolute;
+    bottom: 0;
+    padding: 1em 2em;
+  }
+
+  .darkLayer {
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+}
+
+#reviewsBox {
+  background-color: white;
+
+  .card-body img {
+    height: 30px;
+    width: 30px;
+  }
+}

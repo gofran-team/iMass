@@ -4,7 +4,6 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Review = require("../models/review");
 
-
 router.get("/", (req, res, next) => {
   Review.find().sort({"rates.average" : -1})
   .populate('temple')
@@ -17,7 +16,5 @@ router.get("/", (req, res, next) => {
       next();
     });
 });
-
-
 
 module.exports = router;
