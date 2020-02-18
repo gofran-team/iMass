@@ -39,10 +39,9 @@ const getImages = async () => {
         error.response.statusText,
         `${temple.name} (${++templeCount} of ${temples.length})`
       );
-    } finally {
-      await mongoose.disconnect();
     }
   }
+  await mongoose.disconnect();
 };
 
 getImages();
