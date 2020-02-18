@@ -35,9 +35,9 @@ const getTemples = async () => {
   try {
     await withDbConnection(async () => {
       await dropIfExists(Temple);
-      await Temple.create(temples);
+      const newTemples = await Temple.create(temples);
+      console.log(`${newTemples.length} temples created`);
     });
-    console.log(`Temples created`);
   } catch (error) {
     console.log(error);
   }
