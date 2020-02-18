@@ -12,14 +12,14 @@
 
 <div class="container">
   <div class="best-average row">
-    {{#each temples}}
+    {{#each reviews}}
     <div class="card col mx-md-1">
-      <img src="{{this.image}}" class="card-img-top" alt="{{this.name}} image">
+      <img src="{{this.temple.image}}" class="card-img-top" alt="{{this.temple.name}} image">
       <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
+        <h5 class="card-title">{{this.temple.name}}</h5>
         <p class="card-text">
-          <p>{{this.description}}</p>
-          <a href="/{{this._id}}" class="btn btn-primary">Go this church</a>
+          <p>{{this.temple.description}}</p>
+          <a href="/{{this.temple._id}}" class="btn btn-primary">Go this church</a>
       </div>
     </div>
     {{/each}}
