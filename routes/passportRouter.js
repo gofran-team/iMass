@@ -35,6 +35,8 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
   }
 });
 
+
+
 // Login
 router.get("/login", isLoggedOut(), (req, res, next) => {
   return res.render("passport/login");

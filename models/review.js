@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const strength = require('strength');
 
 
 const reviewSchema = new Schema(

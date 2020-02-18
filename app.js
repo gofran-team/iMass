@@ -89,5 +89,7 @@ const index = require("./routes/index");
 app.use("/", index);
 const passportRouter = require("./routes/passportRouter");
 app.use("/", passportRouter);
+const templesRouter = require("./routes/templesRouter");
+app.use("/", templesRouter);
 
 module.exports = app;
