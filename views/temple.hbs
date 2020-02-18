@@ -1,12 +1,28 @@
+<div class="container">
+  <div id="templeHeader" style='background-image: url("{{temple.image}}");'>
+    <div class="darkLayer">
+      <div id="infoTemple" class="col-lg-7">
+        <h1>{{temple.name}}</h1>
+        <p><i class="fas fa-map-marker-alt"></i> {{temple.address.streetAddress}} - {{temple.address.postalCode}} -
+          {{temple.address.locality}}</p>
+        <p>{{temple.description}}</p>
+      </div>
+    </div>
+  </div>
 
-
-{{#each temples}}
-<div class="card" style="width: 18rem; display: flex; margin-left: 40%; margin-top: 10rem">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFxn0MkCoXSXiFlUr3iZEvb0VlKPizgfCJx6mlXXvU2Qiddi4-" class="card-img-top" alt="...">
-  <div class="card-body card-size">
-    <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text"><p>{{this.description}}</p>
-    <a href="/" class="btn btn-primary">Go God´s Home</a>
+  <div id="reviewsBox" class="col-lg-6 my-2">
+    {{#each reviews}}
+    <div class="card">
+      <div class="card-body">
+        <img src="{{this.user.image}}" alt="Profile image"
+          class="mr-2 rounded-circle"><span>{{this.user.username}}</span>
+        <span class="small mt-2 float-right">{{this.date}}</span>
+        <h5 class="card-title">{{this.rates.average}} points</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Instalaciones {{this.rates.facilities}} | Limpieza
+          {{this.rates.cleanliness}} | Párroco {{this.rates.priest}}</h6>
+        <p class="card-text text-justify">{{this.comment}}</p>
+      </div>
+    </div>
+    {{/each}}
   </div>
 </div>
-{{/each}}
