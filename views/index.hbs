@@ -12,12 +12,13 @@
 <div class="home">
 <img class="home-pic" src="/images/jesus-img.jpg" alt="">
 <div class="best-average">
-{{#each temples}}
+{{#each reviews}}
 <div class="card size-cards" style="width: 18rem;">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFxn0MkCoXSXiFlUr3iZEvb0VlKPizgfCJx6mlXXvU2Qiddi4-" class="card-img-top" alt="...">
   <div class="card-body card-size">
-    <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text"><p>{{this.description}}</p>
+    <h5 class="card-title">{{this.temple.name}}</h5>
+    <p class="card-text">Información:<br> {{this.temple.description}}</p>
+    <p class="card-text">Average:<br>{{this.rates.average}}</p>
     <a href="/{{this._id}}" class="btn btn-primary">Go this church</a>
   </div>
 </div>
