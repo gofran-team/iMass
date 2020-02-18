@@ -1,19 +1,20 @@
-const { withDbConnection } = require("../lib/withDbConnection");
+require("dotenv").config();
 const Temple = require("../models/temple");
 const axios = require("axios");
+const mongoose = require("mongoose");
 
 const getImages = async () => {
-  let temples;
+  await mongoose.connect(process.env.DBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
 
   // get all the temples from the data base
-  try {
-    temples = await Temple.find({ image: { $exists: false } });
-  } catch (error) {
-    console.log(error);
-  }
+  const temples = await Temple.find({ image: { $exists: false } });
 
   // get image from the Google API and save it in the temple document
-  temples.forEach(async (temple, index, array) => {
+  let templeCount = 0;
+  for (temple of temples) {
     try {
       const response = await axios({
         url: "https://www.googleapis.com/customsearch/v1",
@@ -28,18 +29,20 @@ const getImages = async () => {
         }
       });
       temple.image = response.data.items[0].link;
-      await withDbConnection(async () => await temple.save());
+      await temple.save();
       console.log(
-        `${temple.name} image added (${index + 1} of ${array.length})`
+        `${temple.name} image added (${++templeCount} of ${temples.length})`
       );
     } catch (error) {
       console.log(
         error.response.status,
         error.response.statusText,
-        `(${index + 1} of ${array.length})`
+        `${temple.name} (${++templeCount} of ${temples.length})`
       );
+    } finally {
+      await mongoose.disconnect();
     }
-  });
+  }
 };
 
-withDbConnection(async () => await getImages());
+getImages();

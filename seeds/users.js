@@ -1,12 +1,15 @@
-const { withDbConnection } = require("../lib/withDbConnection");
+require("dotenv").config();
+const mongoose = require("mongoose");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
-const users = ["Mateo", "José", "Lucas", "Juan", "Pedro", "Jesús", "Judas"];
-
-users.forEach(user => {
-  try {
-    withDbConnection(async () => {
+const createUsers = async users => {
+  for (user of users) {
+    try {
+      await mongoose.connect(process.env.DBURL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      });
       const existUser = await User.findOne({ username: user });
       if (!existUser) {
         const salt = bcrypt.genSaltSync(10);
@@ -17,8 +20,12 @@ users.forEach(user => {
       } else {
         console.log(`User ${user} already exists`);
       }
-    });
-  } catch (error) {
-    console.log(error);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      await mongoose.disconnect();
+    }
   }
-});
+};
+
+createUsers(["Mateo", "José", "Lucas", "Juan", "Pedro", "Jesús", "Judas"]);
