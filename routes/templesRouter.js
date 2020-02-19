@@ -10,6 +10,10 @@ router.get("/:id", (req, res, next) => {
   Temple.findById(req.params.id)
     .then(async temple => {
       const reviews = await Review.find({ temple }).populate("user");
+      reviews.forEach(review => {
+        const date = new Date(review.user.createdAt);
+        review.date = date.toUTCString();
+      });
       return res.render("temple", { temple, reviews });
     })
     .catch(error => {
@@ -23,7 +27,7 @@ router.post("/", (req, res, next) => {
   Temple.find({ name: { $regex: search, $options: "i" } })
     .limit()
     .then(theTemple => {
-      res.render("temple", { temple: theTemple });
+      res.render("search-temple", { temples: theTemple });
     })
     .catch(error => {
       console.log(error);
