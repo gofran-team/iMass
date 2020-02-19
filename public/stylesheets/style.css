@@ -126,4 +126,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%); }
 
+.church-buttons {
+  display: flex; }
+
 /*# sourceMappingURL=style.css.map */

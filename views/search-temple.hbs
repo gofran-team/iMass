@@ -1,0 +1,14 @@
+
+{{#each temples}}
+<div class="card cards-order" style="width: 18rem; display: flex; margin-left: 40%; margin-top: 10rem">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFxn0MkCoXSXiFlUr3iZEvb0VlKPizgfCJx6mlXXvU2Qiddi4-" class="card-img-top" alt="...">
+  <div class="card-body card-size">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.description}}</p>
+    <div class="church-buttons">
+    <a href="/" class="btn btn-primary">Go God´s Home</a>
+    <a href="/{{this._id}}" class="btn btn-primary">Go this church</a>
+    </div>
+  </div>
+</div>
+{{/each}}
