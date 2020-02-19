@@ -6,6 +6,7 @@ const User = require("../models/user");
 const Temple = require("../models/temple");
 const Review = require("../models/review");
 
+// temple details
 router.get("/:id", (req, res, next) => {
   Temple.findById(req.params.id)
     .then(async temple => {
@@ -22,17 +23,21 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-router.post("/", (req, res, next) => {
+// temple search
+router.post("/search", (req, res, next) => {
   let { search } = req.body;
   Temple.find({ name: { $regex: search, $options: "i" } })
-    .limit()
-    .then(theTemple => {
-      res.render("search-temple", { temples: theTemple });
+    .then(temples => {
+      res.render("search-temple", { temples });
     })
     .catch(error => {
       console.log(error);
       next();
     });
+});
+
+router.get("/search", (req, res, next) => {
+  Temple.find().then(temples => res.render("search-temple", { temples }));
 });
 
 module.exports = router;

@@ -1,11 +1,12 @@
+@import "abstracts/variables";
+@import "base/base";
+@import "base/fonts";
+@import "base/helpers";
+@import "base/typography";
+@import "layout/navbar";
+@import "layout/footer";
+@import "components/card";
 @import "pages/temple";
-
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
-
-body {
-  font: 15px "Lato", sans-serif;
-  background: #f2f2f2;
-}
 
 a {
   color: #00b7ff;
@@ -131,7 +132,6 @@ a {
   transform: translate(-50%, -50%);
 }
 
-.church-buttons{
-  display:flex
+.church-buttons {
+  display: flex;
 }
-
