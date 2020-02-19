@@ -36,8 +36,12 @@ const writeReviews = async () => {
           facilities: randomRates[0],
           cleanliness: randomRates[1],
           priest: randomRates[2],
-          average:
-            randomRates.reduce((acc, cur) => acc + cur, 0) / randomRates.length
+          average: parseFloat(
+            (
+              randomRates.reduce((acc, cur) => acc + cur, 0) /
+              randomRates.length
+            ).toFixed(1)
+          )
         },
         comment: lorem
       };

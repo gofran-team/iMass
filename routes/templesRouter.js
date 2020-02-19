@@ -11,10 +11,6 @@ router.get("/:id", (req, res, next) => {
   Temple.findById(req.params.id)
     .then(async temple => {
       const reviews = await Review.find({ temple }).populate("user");
-      reviews.forEach(review => {
-        const date = new Date(review.user.createdAt);
-        review.date = date.toUTCString();
-      });
       return res.render("temple", { temple, reviews });
     })
     .catch(error => {
