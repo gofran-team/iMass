@@ -4,11 +4,50 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
+const strength = require('strength');
+const {hashPassword,checkHashed} = require("../lib/hash");
 
+
+
+router.get("/signup", isLoggedOut(), (req, res) => {
+  res.render("passport/signup", {
+    user: req.user
+  });
+});
 // Sign up
-router.get("/signup", isLoggedOut(), (req, res, next) =>
-  res.render("passport/signup")
-);
+router.post('/signup', isLoggedOut(), async (req, res, next) => {
+  const {
+    username,
+    password
+  } = req.body;
+  if (!username || !password) {
+    req.flash("error", "Please, fill all the fields");
+    return res.redirect("/signup");
+  }
+    try {
+      const existingUser = await User.findOne({
+        username
+      });
+      if (!existingUser && strength(password) >= 2) {
+        const newUser = await User.create({
+          username,
+          password: hashPassword(password)
+        });
+        return res.redirect('/login');
+      } else if (strength(password) < 2) {
+        req.flash("error", "Create a password with mixed case, special character and number (minimun 8 characters and no repeated letters)");
+        return res.redirect('/signup');
+      } else {
+        req.flash("error", "The user or password already exists");
+        return res.redirect('/signup')
+      }
+    } catch (e) {
+      next(e);
+    }
+});
+
+
+/*
 
 router.post("/signup", isLoggedOut(), async (req, res, next) => {
   const { username, password } = req.body;
@@ -34,6 +73,7 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
     next(e);
   }
 });
+*/
 
 // Login
 router.get("/login", isLoggedOut(), (req, res, next) => {
