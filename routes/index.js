@@ -3,11 +3,11 @@ const router = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Review = require("../models/review");
+const Temple = require("../models/temple")
 
 router.get("/", (req, res, next) => {
-  Review.find()
+  Review.find().populate("temple")
     .sort({ "rates.average": -1 })
-    .populate("temple")
     .limit(4)
     .then(reviews => {
       res.render("index", { reviews });
