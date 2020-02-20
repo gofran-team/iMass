@@ -54,8 +54,22 @@ router.post("/:id/mark-favorite", isLoggedIn(), async (req, res, next) => {
 router.post("/search", (req, res, next) => {
   let { search } = req.body;
   Temple.find({ name: { $regex: search, $options: "i" } })
+  .populate("reviews")
     .then(temples => {
       res.render("search-temple", { temples });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+router.get("/", (req, res, next) => {
+  Review.find().populate("temple")
+    .sort({ "rates.average": -1 })
+    .limit(4)
+    .then(reviews => {
+      res.render("index", { reviews });
     })
     .catch(error => {
       console.log(error);
