@@ -1,0 +1,32 @@
+.review .card-body {
+  border-top: 1px solid lightgrey;
+}
+
+.rate-block {
+  span {
+    font-size: 0.8rem;
+  }
+
+  .rate-wrap {
+    height: 18.75px;
+    width: 93.75px;
+    background-image: url("./../images/sacred-host-back.svg");
+    background-repeat: repeat-x;
+
+    .rate {
+      height: 100%;
+      background-image: url("./../images/sacred-host.svg");
+      background-repeat: repeat-x;
+    }
+  }
+
+  .rate-wrap-small {
+    height: 12.5px;
+    width: 62.5px;
+  }
+}
+
+.review-comment {
+  font-weight: lighter;
+  font-size: 0.9rem;
+}
