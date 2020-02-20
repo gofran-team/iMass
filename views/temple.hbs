@@ -2,33 +2,36 @@
   <div id="templeHeader" style='background-image: url("{{temple.image}}");'>
     <div class="darkLayer">
       <div id="infoTemple" class="col-lg-7">
-        <h1>{{temple.name}}</h1>
+        <h1 class="mb-0">{{temple.name}}</h1>
+        <div class="rate-block">
+          <h4 class="d-inline-block mr-1">{{averageTempleRate}}</h4>
+          <div class="rate-wrap d-inline-block align-baseline mt-3">
+            <div class="rate" data-rate="{{averageTempleRate}}"></div>
+          </div>
+        </div>
         <p><i class="fas fa-map-marker-alt"></i> {{temple.address.streetAddress}} - {{temple.address.postalCode}} -
           {{temple.address.locality}}</p>
         <p>{{temple.description}}</p>
       </div>
+      {{#if user}}
+      <button id="btn-favorite"
+        class="btn btn-light btn-sm float-right mt-2 mr-2 {{#if savedFavorite}}saved-favorite{{/if}}"
+        onclick="markFavorite()" data-temple-id='{{temple.id}}'><i
+          class="far fa-heart mr-2"></i><span>Guardar</span></button>
+      {{/if}}
     </div>
   </div>
 
-  <div id="reviewsBox" class="col-lg-6 my-2">
-    {{#each reviews}}
-    <div class="card">
-      <div class="card-body">
-        <img src="{{this.user.image}}" alt="Profile image"
-          class="mr-2 rounded-circle"><span>{{this.user.username}}</span>
-        <span class="small mt-2 float-right">{{this.date}}</span>
-
-        <h5 class="card-title">{{this.rates.average}} points</h5>
-        <div style="height: 25px; width: 125px; background-image: url('./images/sacred-host-back.svg');">
-          <div id="hosts" style="height: 100%; background-image: url('./images/sacred-host.svg');"
-            data-rate="{{this.rates.average}}"></div>
-        </div>
-
-        <h6 class="card-subtitle mb-2 text-muted">Instalaciones {{this.rates.facilities}} | Limpieza
-          {{this.rates.cleanliness}} | Párroco {{this.rates.priest}}</h6>
-        <p class="card-text text-justify">{{this.comment}}</p>
-      </div>
+  <div id="reviews-box" class="col-lg-6 my-2">
+    <div class="py-4">
+      <h4 class="d-inline">Opiniones ({{reviews.length}})</h4>
+      {{#if user}}
+      <button class="new-review-button btn btn-dark float-right"><i class="fas fa-pencil-alt mr-2"></i>Escribe
+        una opinión</button>
+      {{/if}}
     </div>
+    {{#each reviews}}
+    {{> review}}
     {{/each}}
   </div>
 </div>

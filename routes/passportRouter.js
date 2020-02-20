@@ -34,6 +34,7 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
       // login with the user created
       req.login(newUser, function(err) {
         if (!err) {
+          req.flash("success", `Hola holita, ${newUser.username}`);
           return res.redirect("/");
         } else {
           req.flash("error", "No se ha podido acceder con el usuario creado");
@@ -60,8 +61,8 @@ router.post(
   "/login",
   isLoggedOut(),
   passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
+    successRedirect: "back",
+    failureRedirect: "back",
     failureFlash: true,
     successFlash: "Welcome",
     passReqToCallback: true
@@ -74,18 +75,18 @@ router.get("/auth/facebook", passport.authenticate("facebook"));
 router.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
-    failureRedirect: "/login",
+    successRedirect: "back",
+    failureRedirect: "back",
     successFlash: "Welcome"
-  }),
-  function(req, res) {
-    res.redirect("/");
-  }
+  })
 );
 
 // Logout
 router.get("/logout", isLoggedIn(), (req, res, text) => {
   req.logOut();
-  return res.redirect("/");
+  const host = "http://" + req.headers.host;
+  let origin = req.headers.referer.replace(host, "");
+  return res.redirect(origin);
 });
 
 module.exports = router;

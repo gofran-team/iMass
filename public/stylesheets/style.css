@@ -1,9 +1,33 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap");
 body {
   background: #f2f2f2; }
 
 body {
   font: 15px "Lato", sans-serif; }
+
+.review .card-body {
+  border-top: 1px solid lightgrey; }
+
+.rate-block span {
+  font-size: 0.8rem; }
+
+.rate-block .rate-wrap {
+  height: 18.75px;
+  width: 93.75px;
+  background-image: url("./../images/sacred-host-back.svg");
+  background-repeat: repeat-x; }
+  .rate-block .rate-wrap .rate {
+    height: 100%;
+    background-image: url("./../images/sacred-host.svg");
+    background-repeat: repeat-x; }
+
+.rate-block .rate-wrap-small {
+  height: 12.5px;
+  width: 62.5px; }
+
+.review-comment {
+  font-weight: lighter;
+  font-size: 0.9rem; }
 
 #templeHeader {
   width: 100%;
@@ -22,9 +46,12 @@ body {
     background: black;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%); }
 
-#reviewsBox {
+.saved-favorite i {
+  color: red; }
+
+#reviews-box {
   background-color: white; }
-  #reviewsBox .card-body img {
+  #reviews-box .card-body img {
     height: 30px;
     width: 30px; }
 

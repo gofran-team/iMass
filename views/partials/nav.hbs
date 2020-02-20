@@ -10,12 +10,9 @@
     <div id="menuItems" class="navbar-nav ml-auto">
       {{#unless user}}
       <a class="authBtn nav-item nav-link btn btn-light btn-sm mr-2" href="/signup">Registrarse</a>
-      <a class="authBtn nav-item nav-link btn btn-light btn-sm" href="/login" data-toggle="modal"
-        data-target="#loginModal">Iniciar sesión</a>
+      <a class="authBtn nav-item nav-link btn btn-light btn-sm" data-toggle="modal" data-target="#loginModal">Iniciar
+        sesión</a>
       {{/unless}}
-      {{#if user}}
-      <a class="nav-item nav-link ml-auto mr-4" href="/favorites"><i class="fas fa-church mr-2"></i>Mis templos</a>
-      {{/if}}
     </div>
     {{#if user}}
     <div id="userProfile" class="dropdown ml-auto">
@@ -29,6 +26,7 @@
         {{user.username}}
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="/favorites"><i class="fas fa-heart mr-2"></i>Favoritos</a>
         <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a>
       </div>
     </div>

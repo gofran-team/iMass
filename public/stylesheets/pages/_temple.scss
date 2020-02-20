@@ -24,7 +24,11 @@
   }
 }
 
-#reviewsBox {
+.saved-favorite i {
+  color: red;
+}
+
+#reviews-box {
   background-color: white;
 
   .card-body img {
