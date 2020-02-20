@@ -17,11 +17,19 @@
       <img src="{{this.temple.image}}" class="card-img-top" alt="{{this.temple.name}} image">
       <div class="card-body">
         <h5 class="card-title">{{this.temple.name}}</h5>
-        <p class="card-text">
-          <p>{{this.temple.description}}</p>
-          <a href="/{{this.temple._id}}" class="btn btn-primary">Go this church</a>
+        <p class="card-text"></p>
+        <p>{{temple.description}}</p>
+        <h5 class="card-title">{{this.rates.average}} points</h5>
+        <div style="height: 25px; width: 125px; background-image: url('./images/sacred-host-back.svg');">
+          <div id="hosts" style="height: 100%; background-image: url('./images/sacred-host.svg');"
+            data-rate="{{this.rates.average}}">
+          </div>
+        </div>
       </div>
+      <a href="/{{this.temple._id}}" class="btn btn-primary">Go this church</a>
     </div>
     {{/each}}
   </div>
 </div>
+
+<div id="map"></div>
