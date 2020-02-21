@@ -57,21 +57,7 @@ const writeReviews = async () => {
   } catch (error) {
     console.log(error);
   } finally {
-    await Review.find()
-      .then(reviews => {
-        reviews.forEach(review => {
-          Temple.findByIdAndUpdate(review.temple, {
-            $push: {
-              reviews: review._id
-            }
-          }).then(() => {
-            console.log("Temple succesfully updated");
-          });
-        });
-      })
-      .then(() => {
-        // mongoose.disconnect()
-      });
+    await mongoose.disconnect();
   }
 };
 
