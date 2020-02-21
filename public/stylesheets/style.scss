@@ -7,6 +7,7 @@
 @import "layout/footer";
 @import "components/card";
 @import "components/review";
+@import "components/forms";
 @import "pages/temple";
 
 a {
@@ -42,16 +43,6 @@ a {
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
-}
-
-.auth-form {
-  width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  margin-bottom: 60px;
-  background-color: rgba(200, 200, 200, 0.1);
-  box-shadow: 0 0 5px #ccc;
 }
 
 .alert {

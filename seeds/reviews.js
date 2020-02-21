@@ -4,6 +4,7 @@ const Temple = require("../models/temple");
 const Review = require("../models/review");
 const { loremIpsum } = require("lorem-ipsum");
 const mongoose = require("mongoose");
+const Utils = require("../lib/utils");
 
 const randomNum = n => Math.round(Math.random() * n);
 
@@ -36,12 +37,7 @@ const writeReviews = async () => {
           facilities: randomRates[0],
           cleanliness: randomRates[1],
           priest: randomRates[2],
-          average: parseFloat(
-            (
-              randomRates.reduce((acc, cur) => acc + cur, 0) /
-              randomRates.length
-            ).toFixed(1)
-          )
+          average: Utils.calcAverage(randomRates)
         },
         comment: lorem
       };

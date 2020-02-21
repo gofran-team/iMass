@@ -1,0 +1,79 @@
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-pencil-alt mr-2"></i>Escribir una opinión</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <h6 class="mb-4">¿Has estado en {{temple.name}}? Cuéntanos qué te ha parecido.</h6>
+        <form method="POST" id="review-form" class="mt-2" action="/review">
+
+          <div class="form-group mb-2">
+            <label><i class="fas fa-church mr-1"></i>Instalaciones</label>
+            <div class="rating align-middle d-inline-block">
+              <input id="star5fac" name="facilities" type="radio" value="5" class="radio-btn hide">
+              <label for="star5fac">◯</label>
+              <input id="star4fac" name="facilities" type="radio" value="4" class="radio-btn hide">
+              <label for="star4fac">◯</label>
+              <input id="star3fac" name="facilities" type="radio" value="3" class="radio-btn hide">
+              <label for="star3fac">◯</label>
+              <input id="star2fac" name="facilities" type="radio" value="2" class="radio-btn hide">
+              <label for="star2fac">◯</label>
+              <input id="star1fac" name="facilities" type="radio" value="1" class="radio-btn hide">
+              <label for="star1fac">◯</label>
+              <div class="clear"></div>
+            </div>
+          </div>
+
+          <div class="form-group mb-2">
+            <label><i class="fas fa-broom mr-1"></i>Limpieza</label>
+            <div class="rating align-middle d-inline-block">
+              <input id="star5cle" name="cleanliness" type="radio" value="5" class="radio-btn hide">
+              <label for="star5cle">◯</label>
+              <input id="star4cle" name="cleanliness" type="radio" value="4" class="radio-btn hide">
+              <label for="star4cle">◯</label>
+              <input id="star3cle" name="cleanliness" type="radio" value="3" class="radio-btn hide">
+              <label for="star3cle">◯</label>
+              <input id="star2cle" name="cleanliness" type="radio" value="2" class="radio-btn hide">
+              <label for="star2cle">◯</label>
+              <input id="star1cle" name="cleanliness" type="radio" value="1" class="radio-btn hide">
+              <label for="star1cle">◯</label>
+              <div class="clear"></div>
+            </div>
+          </div>
+
+          <div class="form-group mb-2">
+            <label><i class="fas fa-user mr-1"></i>Párroco</label>
+            <div class="rating align-middle d-inline-block">
+              <input id="star5pri" name="priest" type="radio" value="5" class="radio-btn hide">
+              <label for="star5pri">◯</label>
+              <input id="star4pri" name="priest" type="radio" value="4" class="radio-btn hide">
+              <label for="star4pri">◯</label>
+              <input id="star3pri" name="priest" type="radio" value="3" class="radio-btn hide">
+              <label for="star3pri">◯</label>
+              <input id="star2pri" name="priest" type="radio" value="2" class="radio-btn hide">
+              <label for="star2pri">◯</label>
+              <input id="star1pri" name="priest" type="radio" value="1" class="radio-btn hide">
+              <label for="star1pri">◯</label>
+              <div class="clear"></div>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <textarea class="form-control" id="comment" name="comment" rows="5" placeholder="Escribre tu opinión aquí"
+              required></textarea>
+          </div>
+          <input type="hidden" name="temple" value="{{temple.id}}">
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Enviar opinión</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

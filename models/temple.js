@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const templeSchema = new Schema(
+const templeSchema = new mongoose.Schema(
   {
     name: String,
     address: {
