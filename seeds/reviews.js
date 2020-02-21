@@ -2,9 +2,7 @@ require("dotenv").config();
 const User = require("../models/user");
 const Temple = require("../models/temple");
 const Review = require("../models/review");
-const {
-  loremIpsum
-} = require("lorem-ipsum");
+const { loremIpsum } = require("lorem-ipsum");
 const mongoose = require("mongoose");
 
 const randomNum = n => Math.round(Math.random() * n);
@@ -63,18 +61,17 @@ const writeReviews = async () => {
       .then(reviews => {
         reviews.forEach(review => {
           Temple.findByIdAndUpdate(review.temple, {
-              $push: {
-                reviews: review._id
-              }
-            })
-            .then(() => {
-              console.log("Temple succesfully updated")
-            })
-        })
+            $push: {
+              reviews: review._id
+            }
+          }).then(() => {
+            console.log("Temple succesfully updated");
+          });
+        });
       })
       .then(() => {
         // mongoose.disconnect()
-      })
+      });
   }
 };
 

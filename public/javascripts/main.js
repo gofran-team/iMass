@@ -1,6 +1,7 @@
 window.onload = () => {
   showAlerts();
   onloadTemple();
+  AOS.init();
 };
 
 // fix URL problem with Facebook login callback
