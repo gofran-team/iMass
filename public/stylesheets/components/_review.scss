@@ -15,8 +15,16 @@
 
     .rate {
       height: 100%;
-      background-image: url("./../images/sacred-host.svg");
-      background-repeat: repeat-x;
+      width: 0%;
+      transition: width 1s ease-in;
+      overflow: hidden;
+
+      .hosts-icons {
+        background-image: url("./../images/sacred-host.svg");
+        background-repeat: repeat-x;
+        height: 100%;
+        width: 1000px;
+      }
     }
   }
 

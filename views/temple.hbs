@@ -1,3 +1,5 @@
+{{>reviewform}}
+
 <div class="container">
   <div id="templeHeader" style='background-image: url("{{temple.image}}");'>
     <div class="darkLayer">
@@ -6,7 +8,9 @@
         <div class="rate-block">
           <h4 class="d-inline-block mr-1">{{averageTempleRate}}</h4>
           <div class="rate-wrap d-inline-block align-baseline mt-3">
-            <div class="rate" data-rate="{{averageTempleRate}}"></div>
+            <div class="rate" data-rate="{{averageTempleRate}}">
+              <div class="hosts-icons"></div>
+            </div>
           </div>
         </div>
         <p><i class="fas fa-map-marker-alt"></i> {{temple.address.streetAddress}} - {{temple.address.postalCode}} -
@@ -26,7 +30,8 @@
     <div class="py-4">
       <h4 class="d-inline">Opiniones ({{reviews.length}})</h4>
       {{#if user}}
-      <button class="new-review-button btn btn-dark float-right"><i class="fas fa-pencil-alt mr-2"></i>Escribe
+      <button class="new-review-button btn btn-dark float-right" data-toggle="modal" data-target="#reviewModal"><i
+          class="fas fa-pencil-alt mr-2"></i>Escribe
         una opinión</button>
       {{/if}}
     </div>

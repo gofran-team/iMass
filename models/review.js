@@ -6,10 +6,10 @@ const reviewSchema = new Schema(
     user: { type: Schema.Types.ObjectId, ref: "User" },
     temple: { type: Schema.Types.ObjectId, ref: "Temple" },
     rates: {
-      facilities: Number,
-      cleanliness: Number,
-      priest: Number,
-      average: Number
+      facilities: { type: Number, default: 0 },
+      cleanliness: { type: Number, default: 0 },
+      priest: { type: Number, default: 0 },
+      average: { type: Number, default: 0 }
     },
     comment: String
   },

@@ -7,6 +7,7 @@ const Temple = require("../models/temple");
 const Review = require("../models/review");
 const mongoose = require("mongoose");
 const isTempleFavorite = require("../lib/isTempleFavorite");
+const Utils = require("../lib/utils");
 
 // temple details
 router.get("/:id", (req, res, next) => {
@@ -50,26 +51,34 @@ router.post("/:id/mark-favorite", isLoggedIn(), async (req, res, next) => {
   }
 });
 
+// new review
+router.post("/review", async (req, res, next) => {
+  try {
+    const { facilities = 0, cleanliness = 0, priest = 0 } = req.body;
+    await Review.create({
+      temple: mongoose.Types.ObjectId(req.body.temple),
+      user: mongoose.Types.ObjectId(req.user.id),
+      rates: {
+        facilities,
+        cleanliness,
+        priest,
+        average: Utils.calcAverage([facilities, cleanliness, priest])
+      },
+      comment: req.body.comment
+    });
+    return res.redirect(`/${req.body.temple}`);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // temple search
 router.post("/search", (req, res, next) => {
   let { search } = req.body;
   Temple.find({ name: { $regex: search, $options: "i" } })
-  .populate("reviews")
+    .populate("reviews")
     .then(temples => {
       res.render("search-temple", { temples });
-    })
-    .catch(error => {
-      console.log(error);
-      next();
-    });
-});
-
-router.get("/", (req, res, next) => {
-  Review.find().populate("temple")
-    .sort({ "rates.average": -1 })
-    .limit(4)
-    .then(reviews => {
-      res.render("index", { reviews });
     })
     .catch(error => {
       console.log(error);
