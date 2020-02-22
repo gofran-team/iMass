@@ -64,7 +64,7 @@ router.post(
     successRedirect: "back",
     failureRedirect: "back",
     failureFlash: true,
-    successFlash: "Welcome",
+    successFlash: true,
     passReqToCallback: true
   })
 );
@@ -77,7 +77,7 @@ router.get(
   passport.authenticate("facebook", {
     successRedirect: "back",
     failureRedirect: "back",
-    successFlash: "Welcome"
+    successFlash: true
   })
 );
 

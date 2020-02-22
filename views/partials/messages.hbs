@@ -1,16 +1,17 @@
-
 {{#if errors}}
 {{#each errors}}
-<div class="alert alert-danger fixed-bottom text-center" role="alert">
-  {{this}}
+<div class="message">
+  <div class="bubble">{{this}}</div>
+  <img src="./../images/flanders-error.png">
 </div>
 {{/each}}
 {{/if}}
 
 {{#if success}}
 {{#each success}}
-<div class="alert alert-primary fixed-bottom text-center" role="alert">
-  {{this}}
+<div class="message">
+  <div class="bubble">{{this}}</div>
+  <img src="./../images/flanders-success.png">
 </div>
 {{/each}}
 {{/if}}

@@ -18,7 +18,9 @@ passport.use(
         existingUser.image = profile.photos[0].value;
         existingUser.facebookToken = accessToken;
         await existingUser.save();
-        return cb(null, existingUser);
+        return cb(null, existingUser, {
+          message: `Hola holita, ${existingUser.username}`
+        });
       } else {
         const newUser = await User.create({
           username: profile.displayName,
@@ -26,7 +28,9 @@ passport.use(
           facebookId: profile.id,
           facebookToken: accessToken
         });
-        return cb(null, newUser);
+        return cb(null, newUser, {
+          message: `Hola holita, ${existingUser.username}`
+        });
       }
     }
   )
