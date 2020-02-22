@@ -24,7 +24,7 @@ const getImages = async () => {
           q: temple.name,
           searchType: "image",
           fileType: "jpg",
-          imgSize: "large",
+          cr: true,
           alt: "json"
         }
       });

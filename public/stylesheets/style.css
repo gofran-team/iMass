@@ -35,16 +35,42 @@ body {
   font-weight: lighter;
   font-size: 0.9rem; }
 
-.form-wrap {
+#signup-form {
   height: 90vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-content: center;
   align-items: center; }
+  #signup-form form {
+    width: 270px; }
 
-#signup-form {
-  width: 270px; }
+#templeHeader {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  margin-top: 1em;
+  color: white;
+  position: relative; }
+  #templeHeader #infoTemple {
+    position: absolute;
+    bottom: 0;
+    padding: 1em 2em; }
+  #templeHeader .darkLayer {
+    width: 100%;
+    height: 100%;
+    background: black;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%); }
+
+.saved-favorite i {
+  color: red; }
+
+#reviews-box {
+  background-color: white; }
+  #reviews-box .card-body img {
+    height: 30px;
+    width: 30px; }
 
 #reviewModal .modal-dialog {
   width: 375px; }
@@ -89,33 +115,6 @@ body {
   position: absolute;
   left: 0;
   color: orange; }
-
-#templeHeader {
-  width: 100%;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  margin-top: 1em;
-  color: white;
-  position: relative; }
-  #templeHeader #infoTemple {
-    position: absolute;
-    bottom: 0;
-    padding: 1em 2em; }
-  #templeHeader .darkLayer {
-    width: 100%;
-    height: 100%;
-    background: black;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%); }
-
-.saved-favorite i {
-  color: red; }
-
-#reviews-box {
-  background-color: white; }
-  #reviews-box .card-body img {
-    height: 30px;
-    width: 30px; }
 
 a {
   color: #00b7ff; }
