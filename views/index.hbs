@@ -1,5 +1,5 @@
 <div class="wrap">
-  <form method="POST" action="search">
+  <form method="POST" action="/temple/search">
     <div class="search">
       <input name="search" id="search" type="text" class="searchTerm" placeholder="What are you looking for?">
       <button type="submit" class="searchButton">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <a href="/{{this.temple._id}}" class="btn btn-primary">Go this church</a>
+      <a href="/temple/{{this.temple._id}}" class="btn btn-primary">Go this church</a>
     </div>
     {{/each}}
   </div>

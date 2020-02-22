@@ -29,7 +29,7 @@ function markFavorite() {
   const templeId = btnFavorite.getAttribute("data-temple-id");
 
   axios
-    .post(`/${templeId}/mark-favorite`)
+    .post(`/temple/${templeId}/mark-favorite`)
     .then(function(response) {
       btnFavorite.classList.toggle("saved-favorite");
       updateBtnFavorite();

@@ -66,7 +66,7 @@ router.post("/review", async (req, res, next) => {
       },
       comment: req.body.comment
     });
-    return res.redirect(`/${req.body.temple}`);
+    return res.redirect(`/temple/${req.body.temple}`);
   } catch (error) {
     console.log(error);
   }
