@@ -9,7 +9,7 @@
     </a>
     <div id="menuItems" class="navbar-nav ml-auto">
       {{#unless user}}
-      <a class="authBtn nav-item nav-link btn btn-light btn-sm mr-2" href="/signup">Registrarse</a>
+      <a class="authBtn nav-item nav-link btn btn-light btn-sm mr-2" href="/auth/signup">Registrarse</a>
       <a class="authBtn nav-item nav-link btn btn-light btn-sm" data-toggle="modal" data-target="#loginModal">Iniciar
         sesión</a>
       {{/unless}}
@@ -26,8 +26,8 @@
         {{user.username}}
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="/favorites"><i class="fas fa-heart mr-2"></i>Favoritos</a>
-        <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a>
+        <a class="dropdown-item" href="/temple/favorites"><i class="fas fa-heart mr-2"></i>Favoritos</a>
+        <a class="dropdown-item" href="/auth/logout"><i class="fas fa-sign-out-alt mr-2"></i>Salir</a>
       </div>
     </div>
     {{/if}}
