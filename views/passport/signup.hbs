@@ -1,16 +1,21 @@
-<div id="signup-form">
-  <h3 class="text-center mb-4">¡Regístrate!</h3>
-  <form method="POST">
-    <div class="form-group">
-      <label for="usernameSignUp">Usuario</label>
-      <input type="text" class="form-control" id="usernameSignUp" name="username">
+<div class="w-100 d-flex justify-content-center vh-80">
+  <div id="signup-form-wrap" class="d-flex justify-content-end align-self-center">
+    <div id="signup-form" class="mt-5 mr-4">
+      <h3 class="text-center mb-4 txt-dark">¡Regístrate!</h3>
+      <form method="POST" class>
+        <div class="form-group">
+          <label class="sr-only" for="usernameSignUp">Usuario</label>
+          <input type="text" class="form-control txt-light" id="usernameSignUp" name="username" placeholder="Usuario">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="passwordSignUp">Contraseña</label>
+          <input type="password" class="form-control txt-light" id="passwordSignUp" name="password"
+            placeholder="Contraseña">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn button-primary w-100">Registrar</button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="passwordSignUp">Contraseña</label>
-      <input type="password" class="form-control" id="passwordSignUp" name="password">
-    </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary">Registrar</button>
-    </div>
-  </form>
+  </div>
 </div>

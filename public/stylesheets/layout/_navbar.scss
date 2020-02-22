@@ -1,0 +1,30 @@
+#menu {
+  background-color: $bg-dark-color;
+
+  #logo-menu {
+    background-image: url("./../images/logo-menu.svg");
+    width: 62.5px;
+    height: 23.125px;
+  }
+
+  .authBtn {
+    background-color: transparent;
+  }
+
+  #menuItems {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+#userProfile {
+  cursor: pointer;
+
+  img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}

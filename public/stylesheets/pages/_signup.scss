@@ -1,0 +1,15 @@
+#signup-form-wrap {
+  background-color: $card-bg-light;
+  background-image: url("./../images/signup-image.png");
+  background-size: contain;
+  background-position: -50px 30px;
+  background-repeat: no-repeat;
+  box-shadow: $shadow-dark;
+  border-radius: 5px;
+  width: 700px;
+  height: 400px;
+
+  #signup-form {
+    width: 270px;
+  }
+}

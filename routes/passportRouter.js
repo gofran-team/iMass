@@ -19,7 +19,7 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
     req.flash("error", "Please, fill all the fields");
-    return res.redirect("/signup");
+    return res.redirect("/auth/signup");
   }
   try {
     const existingUser = await User.findOne({
@@ -46,10 +46,10 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
         "error",
         "Create a password with mixed case, special character and number (minimum 8 characters and no repeated letters)"
       );
-      return res.redirect("/signup");
+      return res.redirect("/auth/signup");
     } else {
       req.flash("error", "The user or password already exists");
-      return res.redirect("/signup");
+      return res.redirect("/auth/signup");
     }
   } catch (e) {
     next(e);

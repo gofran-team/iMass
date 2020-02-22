@@ -1,12 +1,60 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap");
 body {
-  background: #f2f2f2; }
+  background: #f2f7f5; }
 
 body {
   font: 15px "Lato", sans-serif; }
 
+.vh-80 {
+  height: 80vh; }
+
+.txt-dark {
+  color: #00473e; }
+
+.txt-light {
+  color: #475d5b; }
+
+.button-primary {
+  background-color: #faae2b;
+  color: #00473e;
+  font-weight: bold; }
+  .button-primary:hover {
+    color: #00473e;
+    box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6); }
+
+input[type="text"],
+input[type="password"] {
+  color: #475d5b; }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    color: #475d5b;
+    border-color: #faae2b;
+    box-shadow: 0 0 0.2rem #faae2b; }
+
+#menu {
+  background-color: #00473e; }
+  #menu #logo-menu {
+    background-image: url("./../images/logo-menu.svg");
+    width: 62.5px;
+    height: 23.125px; }
+  #menu .authBtn {
+    background-color: transparent; }
+  #menu #menuItems {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; }
+
+#userProfile {
+  cursor: pointer; }
+  #userProfile img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+
 .review .card-body {
-  border-top: 1px solid lightgrey; }
+  border-top: 1px solid lightgrey;
+  background-color: #fffffe; }
 
 .rate-block span {
   font-size: 0.8rem; }
@@ -35,14 +83,17 @@ body {
   font-weight: lighter;
   font-size: 0.9rem; }
 
-#signup-form {
-  height: 90vh;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center; }
-  #signup-form form {
+#signup-form-wrap {
+  background-color: #fffffe;
+  background-image: url("./../images/signup-image.png");
+  background-size: contain;
+  background-position: -50px 30px;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 20px rgba(0, 51, 44, 0.3);
+  border-radius: 5px;
+  width: 700px;
+  height: 400px; }
+  #signup-form-wrap #signup-form {
     width: 270px; }
 
 #templeHeader {
@@ -67,7 +118,7 @@ body {
   color: red; }
 
 #reviews-box {
-  background-color: white; }
+  background-color: #fffffe; }
   #reviews-box .card-body img {
     height: 30px;
     width: 30px; }
@@ -118,27 +169,6 @@ body {
 
 a {
   color: #00b7ff; }
-
-#menu {
-  background-color: #111; }
-  #menu #logo-menu {
-    background-image: url("./../images/logo-menu.svg");
-    width: 62.5px;
-    height: 23.125px; }
-  #menu .authBtn {
-    background-color: transparent; }
-  #menu #menuItems {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end; }
-
-#userProfile {
-  cursor: pointer; }
-  #userProfile img {
-    width: 25px;
-    height: 25px;
-    object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.5); }
 
 .alert {
   margin: 0;

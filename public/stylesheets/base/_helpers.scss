@@ -1,0 +1,32 @@
+.vh-80 {
+  height: 80vh;
+}
+
+.txt-dark {
+  color: $text-dark;
+}
+.txt-light {
+  color: $text-light;
+}
+
+.button-primary {
+  background-color: $btn-primary;
+  color: $text-dark;
+  font-weight: bold;
+
+  &:hover {
+    color: $text-dark;
+    box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6);
+  }
+}
+
+input[type="text"],
+input[type="password"] {
+  color: $text-light;
+
+  &:focus {
+    color: $text-light;
+    border-color: $highlight;
+    box-shadow: 0 0 0.2rem $highlight;
+  }
+}
