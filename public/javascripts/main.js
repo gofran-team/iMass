@@ -3,6 +3,7 @@ window.onload = () => {
   onloadTemple();
   AOS.init();
   listeners();
+  setAutocomplete();
 };
 
 // fix URL problem with Facebook login callback
@@ -27,4 +28,34 @@ function listeners() {
       window.location = card.getAttribute("data-url");
     })
   );
+}
+
+async function setAutocomplete() {
+  try {
+    const response = await axios.post(`/temple/get-names`);
+    const templeNames = response.data.map(temple => ({
+      label: temple.name,
+      value: temple.name
+    }));
+
+    const input = document.getElementById("search");
+
+    autocomplete({
+      input: input,
+      emptyMsg: "No hay resultados",
+      fetch: function(text, update) {
+        text = text.toLowerCase();
+        console.log(templeNames);
+        const suggestions = templeNames.filter(n =>
+          n.label.toLowerCase().includes(text)
+        );
+        update(suggestions);
+      },
+      onSelect: function(item) {
+        input.value = item.label;
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
