@@ -127,9 +127,27 @@ router.post("/search", (req, res, next) => {
           : `${templesN} templo encontrado`;
 
       Utils.setDefaultImage(temples);
-      res.render("search-temple", { temples, found });
+      if (temples.length === 1) return res.redirect(`/temple/${temples[0].id}`);
+      else return res.render("search-temple", { temples, found });
     });
   });
+});
+
+// API that serves the name of all the temples
+router.post("/get-names", async (req, res, next) => {
+  try {
+    const temples = await Temple.aggregate([
+      {
+        $project: {
+          _id: 0,
+          name: 1
+        }
+      }
+    ]);
+    return res.json(temples);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;

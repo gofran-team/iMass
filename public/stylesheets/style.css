@@ -155,6 +155,63 @@ p {
 .showAlert {
   right: 0; }
 
+.search-bar-wrap {
+  z-index: 9;
+  top: 26%;
+  position: absolute;
+  width: 100%; }
+  .search-bar-wrap .home-claim {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: lighter;
+    width: 45%;
+    margin: 0 auto 20px;
+    color: #fffffe; }
+  .search-bar-wrap .search-bar {
+    width: 45%;
+    position: relative;
+    display: flex;
+    margin: 0 auto; }
+    .search-bar-wrap .search-bar .search-text {
+      width: 100%;
+      height: 2.7rem;
+      border: 3px solid #faae2b;
+      border-right: none;
+      padding: 5px;
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.9); }
+    .search-bar-wrap .search-bar .search-button {
+      width: 45px;
+      height: 2.7rem;
+      border: 1px solid #faae2b;
+      background: #faae2b;
+      text-align: center;
+      color: #00473e;
+      cursor: pointer;
+      font-size: 20px; }
+
+.autocomplete {
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  font: 14px/22px "Lato", sans-serif;
+  overflow: auto;
+  box-sizing: border-box;
+  border: 1px solid #faae2b; }
+
+.autocomplete * {
+  font: inherit; }
+
+.autocomplete > div {
+  padding: 0 4px; }
+
+.autocomplete .group {
+  background: #eee; }
+
+.autocomplete > div:hover:not(.group),
+.autocomplete > div.selected {
+  background: rgba(250, 174, 43, 0.5);
+  cursor: pointer; }
+
 #signup-form-wrap {
   background-color: #fffffe;
   background-image: url("./../images/signup-image.png");
@@ -252,40 +309,6 @@ p {
   background: url("./../images/home-slide.jpg") no-repeat;
   background-size: cover;
   background-position: center; }
-  .home-wrap .search-bar-wrap {
-    z-index: 9;
-    top: 26%;
-    position: absolute;
-    width: 100%; }
-    .home-wrap .search-bar-wrap .home-claim {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: lighter;
-      width: 45%;
-      margin: 0 auto 20px;
-      color: #fffffe; }
-    .home-wrap .search-bar-wrap .search-bar {
-      width: 45%;
-      position: relative;
-      display: flex;
-      margin: 0 auto; }
-      .home-wrap .search-bar-wrap .search-bar .search-text {
-        width: 100%;
-        height: 2.7rem;
-        border: 3px solid #faae2b;
-        border-right: none;
-        padding: 5px;
-        outline: none;
-        background-color: rgba(255, 255, 255, 0.9); }
-      .home-wrap .search-bar-wrap .search-bar .search-button {
-        width: 45px;
-        height: 2.7rem;
-        border: 1px solid #faae2b;
-        background: #faae2b;
-        text-align: center;
-        color: #00473e;
-        cursor: pointer;
-        font-size: 20px; }
 
 .home-wrap::after {
   content: "\A";
