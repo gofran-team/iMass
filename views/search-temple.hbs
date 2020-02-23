@@ -1,19 +1,9 @@
-<div class="container">
-  <div class="best-average row">
+<div class="container my-4">
+  <h1 class="my-3">{{found}}</h1>
+  <div class="row display-flex">
     {{#each temples}}
-    <div class="card col mx-md-1">
-      <img src="{{this.image}}" class="card-img-top" alt="{{this.name}} image">
-      <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text"></p>
-        <p>{{this.description}}</p>
-        <div style="height: 25px; width: 125px; background-image: url('./images/sacred-host-back.svg');">
-          <div id="hosts" style="height: 100%; background-image: url('./images/sacred-host.svg');"
-            data-rate="{{this.rates.average}}">
-          </div>
-        </div>
-      </div>
-      <a href="/temple/{{this._id}}" class="btn btn-primary">Go this church</a>
+    <div class="temple-card col-md-6 col-lg-4" data-aos="fade-up">
+      {{>card}}
     </div>
     {{/each}}
   </div>

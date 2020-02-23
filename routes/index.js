@@ -4,6 +4,7 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Review = require("../models/review");
 const Temple = require("../models/temple");
+const Utils = require("../lib/utils");
 
 router.get("/", (req, res, next) => {
   Review.aggregate([
@@ -12,6 +13,9 @@ router.get("/", (req, res, next) => {
         _id: "$temple",
         average: {
           $avg: "$rates.average"
+        },
+        reviews: {
+          $sum: 1
         }
       }
     },
@@ -21,11 +25,32 @@ router.get("/", (req, res, next) => {
       }
     },
     {
-      $limit: 4
+      $limit: 6
+    },
+    {
+      $project: {
+        _id: 0,
+        temple: "$_id",
+        average: {
+          $trunc: ["$average", 1]
+        },
+        reviews: 1
+      }
     }
   ]).exec(function(err, bestReviews) {
-    Temple.populate(bestReviews, { path: "_id" }, function(error, bestTemples) {
-      return res.render("index", { bestTemples });
+    Temple.populate(bestReviews, { path: "temple" }, function(
+      error,
+      bestTemples
+    ) {
+      const temples = bestTemples.map(t => ({
+        id: t.temple._id,
+        name: t.temple.name,
+        image: t.temple.image,
+        average: t.average,
+        reviews: t.reviews
+      }));
+      Utils.setDefaultImage(temples);
+      return res.render("index", { temples, menuHome: true });
     });
   });
 });

@@ -4,13 +4,18 @@
   background-size: cover;
   background-position: center;
   margin-top: 1em;
-  color: white;
+  color: $text-bg-dark;
   position: relative;
 
   #infoTemple {
     position: absolute;
     bottom: 0;
     padding: 1em 2em;
+
+    h1,
+    h4 {
+      color: $text-bg-dark;
+    }
   }
 
   .darkLayer {
@@ -32,9 +37,14 @@
 #reviews-box {
   background-color: $card-bg-light;
 
+  .card {
+    border: none;
+  }
+
   .card-body img {
     height: 30px;
     width: 30px;
+    object-fit: cover;
   }
 }
 

@@ -75,19 +75,61 @@ router.post("/review", async (req, res, next) => {
 // temple search
 router.post("/search", (req, res, next) => {
   let { search } = req.body;
-  Temple.find({ name: { $regex: search, $options: "i" } })
-    .populate("reviews")
-    .then(temples => {
-      res.render("search-temple", { temples });
-    })
-    .catch(error => {
-      console.log(error);
-      next();
-    });
-});
+  Review.aggregate([
+    {
+      $group: {
+        _id: "$temple",
+        average: {
+          $avg: "$rates.average"
+        },
+        reviews: {
+          $sum: 1
+        }
+      }
+    },
+    {
+      $sort: {
+        average: -1
+      }
+    },
+    {
+      $project: {
+        _id: 0,
+        temple: "$_id",
+        average: {
+          $trunc: ["$average", 1]
+        },
+        reviews: 1
+      }
+    }
+  ]).exec(function(err, reviews) {
+    Temple.populate(reviews, { path: "temple" }, function(error, temples) {
+      temples = temples
+        .map(t => ({
+          id: t.temple._id,
+          name: t.temple.name,
+          image: t.temple.image,
+          location: t.temple.location,
+          average: t.average,
+          reviews: t.reviews
+        }))
+        .filter(t => {
+          const searchExp = new RegExp(search, "i");
+          return searchExp.test(t.name);
+        });
 
-router.get("/search", (req, res, next) => {
-  Temple.find().then(temples => res.render("search-temple", { temples }));
+      const templesN = temples.length;
+      const found =
+        templesN < 1
+          ? "Ningún templo encontrado"
+          : templesN > 1
+          ? `${templesN} templos encontrados`
+          : `${templesN} templo encontrado`;
+
+      Utils.setDefaultImage(temples);
+      res.render("search-temple", { temples, found });
+    });
+  });
 });
 
 module.exports = router;
