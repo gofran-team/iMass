@@ -1,6 +1,17 @@
 #menu {
   background-color: $bg-dark-color;
 
+  &.menu-home {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+  }
+
   #logo-menu {
     background-image: url("./../images/logo-menu.svg");
     width: 62.5px;

@@ -1,0 +1,28 @@
+.temple-card {
+  padding: 10px;
+
+  .card {
+    border: none;
+    padding: 0;
+    height: 100%;
+    cursor: pointer;
+
+    img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// HOVER EFFECT
+.zoom-box-shadow:hover {
+  box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.4);
+  -webkit-transform: translate(0, -10px);
+  transform: translate(0, -10px);
+}
+
+[class*="zoom-box-shadow"] {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
