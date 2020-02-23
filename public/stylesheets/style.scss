@@ -7,53 +7,12 @@
 @import "layout/footer";
 @import "components/card";
 @import "components/review";
-@import "components/forms";
+@import "components/messages";
+@import "pages/signup";
 @import "pages/temple";
 
 a {
   color: #00b7ff;
-}
-
-#menu {
-  background-color: #111;
-
-  #logo-menu {
-    background-image: url("./../images/logo-menu.svg");
-    width: 62.5px;
-    height: 23.125px;
-  }
-
-  .authBtn {
-    background-color: transparent;
-  }
-
-  #menuItems {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
-#userProfile {
-  cursor: pointer;
-
-  img {
-    width: 25px;
-    height: 25px;
-    object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-  }
-}
-
-.alert {
-  margin: 0;
-  border-radius: 0;
-  transition: all 0.5s ease-in;
-  bottom: -3.5em;
-}
-
-.showAlert {
-  bottom: 0;
 }
 
 .home-pic {
