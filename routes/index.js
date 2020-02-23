@@ -6,17 +6,28 @@ const Review = require("../models/review");
 const Temple = require("../models/temple");
 
 router.get("/", (req, res, next) => {
-  Review.find()
-    .populate("temple")
-    .sort({ "rates.average": -1 })
-    .limit(4)
-    .then(reviews => {
-      res.render("index", { reviews });
-    })
-    .catch(error => {
-      console.log(error);
-      next();
+  Review.aggregate([
+    {
+      $group: {
+        _id: "$temple",
+        average: {
+          $avg: "$rates.average"
+        }
+      }
+    },
+    {
+      $sort: {
+        average: -1
+      }
+    },
+    {
+      $limit: 4
+    }
+  ]).exec(function(err, bestReviews) {
+    Temple.populate(bestReviews, { path: "_id" }, function(error, bestTemples) {
+      return res.render("index", { bestTemples });
     });
+  });
 });
 
 const passportRouter = require("./passportRouter");

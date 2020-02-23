@@ -12,11 +12,11 @@
 
 <div class="container">
   <div class="best-average row">
-    {{#each reviews}}
+    {{#each bestTemples}}
     <div class="card col mx-md-1">
-      <img src="{{this.temple.image}}" class="card-img-top" alt="{{this.temple.name}} image">
+      <img src="{{this._id.image}}" class="card-img-top" alt="{{this._id.name}} image">
       <div class="card-body">
-        <h5 class="card-title">{{this.temple.name}}</h5>
+        <h5 class="card-title">{{this._id.name}}</h5>
         <p class="card-text"></p>
         <p>{{temple.description}}</p>
         <h5 class="card-title">{{this.rates.average}} points</h5>
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <a href="/temple/{{this.temple._id}}" class="btn btn-primary">Go this church</a>
+      <a href="/temple/{{this._id._id}}" class="btn btn-primary">Go this church</a>
     </div>
     {{/each}}
   </div>
