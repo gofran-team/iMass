@@ -5,6 +5,8 @@ body {
 
 a {
   color: #faae2b; }
+  a:hover {
+    color: #00473e; }
 
 .txt-dark {
   color: #00473e; }
@@ -21,10 +23,12 @@ a {
     box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6); }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+textarea.form-control {
   color: #475d5b; }
   input[type="text"]:focus,
-  input[type="password"]:focus {
+  input[type="password"]:focus,
+  textarea.form-control:focus {
     color: #475d5b;
     border-color: #faae2b;
     box-shadow: 0 0 0.2rem #faae2b; }
@@ -100,6 +104,17 @@ p {
 [class*="zoom-box-shadow"] {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
+
+.modal-content {
+  background-color: #f2f7f5; }
+  .modal-content .modal-header {
+    background-color: #00473e;
+    border-bottom: none; }
+    .modal-content .modal-header h5 {
+      color: #fffffe; }
+    .modal-content .modal-header .close {
+      color: #fffffe;
+      text-shadow: none; }
 
 .review .card-body {
   border-top: 1px solid rgba(71, 93, 91, 0.3);
@@ -261,46 +276,48 @@ p {
 #reviewModal .modal-dialog {
   width: 375px; }
 
-.txt-center {
+#reviewModal form label {
+  color: #00473e; }
+
+#reviewModal .txt-center {
   text-align: center; }
 
-.hide {
+#reviewModal .hide {
   display: none; }
 
-.clear {
+#reviewModal .clear {
   float: none;
   clear: both; }
 
-.rating {
+#reviewModal .rating {
   width: 90px;
   unicode-bidi: bidi-override;
   direction: rtl;
   text-align: center;
   position: relative; }
 
-.rating > label {
+#reviewModal .rating > label {
   float: right;
   display: inline;
   padding: 0;
   margin: 0;
   position: relative;
   width: 1.1em;
-  cursor: pointer;
-  color: #000; }
+  cursor: pointer; }
 
-.rating > label:hover,
-.rating > label:hover ~ label,
-.rating > input.radio-btn:checked ~ label {
+#reviewModal .rating > label:hover,
+#reviewModal .rating > label:hover ~ label,
+#reviewModal .rating > input.radio-btn:checked ~ label {
   color: transparent; }
 
-.rating > label:hover:before,
-.rating > label:hover ~ label:before,
-.rating > input.radio-btn:checked ~ label:before,
-.rating > input.radio-btn:checked ~ label:before {
+#reviewModal .rating > label:hover:before,
+#reviewModal .rating > label:hover ~ label:before,
+#reviewModal .rating > input.radio-btn:checked ~ label:before,
+#reviewModal .rating > input.radio-btn:checked ~ label:before {
   content: "\25C9";
   position: absolute;
   left: 0;
-  color: orange; }
+  color: #faae2b; }
 
 .home-wrap {
   width: 100%;

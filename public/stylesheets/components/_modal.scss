@@ -1,0 +1,17 @@
+.modal-content {
+  background-color: $bg-light-color;
+
+  .modal-header {
+    background-color: $bg-dark-color;
+    border-bottom: none;
+
+    h5 {
+      color: $text-bg-dark;
+    }
+
+    .close {
+      color: $text-bg-dark;
+      text-shadow: none;
+    }
+  }
+}

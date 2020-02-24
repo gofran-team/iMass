@@ -5,6 +5,10 @@ body {
 
 a {
   color: $highlight;
+
+  &:hover {
+    color: $text-dark;
+  }
 }
 
 .txt-dark {
@@ -26,7 +30,8 @@ a {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+textarea.form-control {
   color: $text-light;
 
   &:focus {

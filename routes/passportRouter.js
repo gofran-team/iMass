@@ -44,7 +44,7 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
     } else if (strength(password) < 2) {
       req.flash(
         "error",
-        "Create a password with mixed case, special character and number (minimum 8 characters and no repeated letters)"
+        "Esa contraseña es poco segura. ¡Esfuérzate un poco más!"
       );
       return res.redirect("/auth/signup");
     } else {
