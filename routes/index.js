@@ -7,8 +7,7 @@ const Temple = require("../models/temple");
 const Utils = require("../lib/utils");
 
 router.get("/", (req, res, next) => {
-  Review.aggregate([
-    {
+  Review.aggregate([{
       $group: {
         _id: "$temple",
         average: {
@@ -37,8 +36,10 @@ router.get("/", (req, res, next) => {
         reviews: 1
       }
     }
-  ]).exec(function(err, bestReviews) {
-    Temple.populate(bestReviews, { path: "temple" }, function(
+  ]).exec(function (err, bestReviews) {
+    Temple.populate(bestReviews, {
+      path: "temple"
+    }, function (
       error,
       bestTemples
     ) {
@@ -50,7 +51,10 @@ router.get("/", (req, res, next) => {
         reviews: t.reviews
       }));
       Utils.setDefaultImage(temples);
-      return res.render("index", { temples, menuHome: true });
+      return res.render("index", {
+        temples,
+        menuHome: true
+      });
     });
   });
 });
@@ -59,5 +63,7 @@ const passportRouter = require("./passportRouter");
 router.use("/auth", passportRouter);
 const templesRouter = require("./templesRouter");
 router.use("/temple", templesRouter);
+const apigoogleRouter = require("./apigoogleRouter");
+router.use("/api", apigoogleRouter);
 
 module.exports = router;

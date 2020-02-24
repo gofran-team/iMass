@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
+const {
+  isLoggedIn,
+  isLoggedOut
+} = require("../lib/isLoggedMiddleware");
 const ensureLogin = require("connect-ensure-login");
 const User = require("../models/user");
 const Temple = require("../models/temple");
@@ -13,13 +16,17 @@ const Utils = require("../lib/utils");
 router.get("/:id", (req, res, next) => {
   Temple.findById(req.params.id)
     .then(async temple => {
-      const reviews = await Review.find({ temple })
+      const reviews = await Review.find({
+          temple
+        })
         .populate("user")
-        .sort({ createdAt: -1 });
+        .sort({
+          createdAt: -1
+        });
       const savedFavorite = isTempleFavorite(req.user, temple._id);
       const averageTempleRate = parseFloat(
         reviews.reduce((acc, review) => acc + review.rates.average, 0) /
-          reviews.length
+        reviews.length
       ).toFixed(1);
       return res.render("temple", {
         temple,
@@ -45,7 +52,9 @@ router.post("/:id/mark-favorite", isLoggedIn(), async (req, res, next) => {
       user.favorites.push(templeObjectId);
     }
     await user.save();
-    res.json({ done: true });
+    res.json({
+      done: true
+    });
   } catch (error) {
     console.log(error);
   }
@@ -54,7 +63,9 @@ router.post("/:id/mark-favorite", isLoggedIn(), async (req, res, next) => {
 // new review
 router.post("/review", async (req, res, next) => {
   try {
-    const { facilities = 0, cleanliness = 0, priest = 0 } = req.body;
+    const {
+      facilities = 0, cleanliness = 0, priest = 0
+    } = req.body;
     await Review.create({
       temple: mongoose.Types.ObjectId(req.body.temple),
       user: mongoose.Types.ObjectId(req.user.id),
@@ -74,9 +85,10 @@ router.post("/review", async (req, res, next) => {
 
 // temple search
 router.post("/search", (req, res, next) => {
-  let { search } = req.body;
-  Review.aggregate([
-    {
+  let {
+    search
+  } = req.body;
+  Review.aggregate([{
       $group: {
         _id: "$temple",
         average: {
@@ -102,8 +114,10 @@ router.post("/search", (req, res, next) => {
         reviews: 1
       }
     }
-  ]).exec(function(err, reviews) {
-    Temple.populate(reviews, { path: "temple" }, function(error, temples) {
+  ]).exec(function (err, reviews) {
+    Temple.populate(reviews, {
+      path: "temple"
+    }, function (error, temples) {
       temples = temples
         .map(t => ({
           id: t.temple._id,
@@ -120,15 +134,19 @@ router.post("/search", (req, res, next) => {
 
       const templesN = temples.length;
       const found =
-        templesN < 1
-          ? "Ningún templo encontrado"
-          : templesN > 1
-          ? `${templesN} templos encontrados`
-          : `${templesN} templo encontrado`;
+        templesN < 1 ?
+        "Ningún templo encontrado" :
+        templesN > 1 ?
+        `${templesN} templos encontrados` :
+        `${templesN} templo encontrado`;
 
       Utils.setDefaultImage(temples);
       if (temples.length === 1) return res.redirect(`/temple/${temples[0].id}`);
-      else return res.render("search-temple", { temples, found });
+      else return res.render("search-temple", {
+        temples,
+        found,
+        search
+      });
     });
   });
 });
@@ -136,14 +154,12 @@ router.post("/search", (req, res, next) => {
 // API that serves the name of all the temples
 router.post("/get-names", async (req, res, next) => {
   try {
-    const temples = await Temple.aggregate([
-      {
-        $project: {
-          _id: 0,
-          name: 1
-        }
+    const temples = await Temple.aggregate([{
+      $project: {
+        _id: 0,
+        name: 1
       }
-    ]);
+    }]);
     return res.json(temples);
   } catch (error) {
     console.log(error);

@@ -1,6 +1,6 @@
 {{>reviewform}}
 
-<div class="container">
+<div id="temple-info" class="container" data-temple-id="{{temple._id}}">
   <div id="templeHeader" style='background-image: url("{{temple.image}}");'>
     <div class="darkLayer">
       <div id="infoTemple" class="col-lg-7">
@@ -40,3 +40,4 @@
     {{/each}}
   </div>
 </div>
+<div id="map"></div>
