@@ -39,6 +39,9 @@ body {
 .vh-extend {
   height: 85vh; }
 
+.hidden {
+  display: none; }
+
 .row.display-flex {
   display: flex;
   flex-wrap: wrap; }
@@ -98,8 +101,8 @@ p {
 
 .zoom-box-shadow:hover {
   box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.4);
-  -webkit-transform: translate(0, -10px);
-  transform: translate(0, -10px); }
+  -webkit-transform: translate(0, -5px);
+  transform: translate(0, -5px); }
 
 [class*="zoom-box-shadow"] {
   -webkit-transition: all 0.5s ease;
@@ -227,6 +230,10 @@ p {
   background: rgba(250, 174, 43, 0.5);
   cursor: pointer; }
 
+#map {
+  height: 500px;
+  width: 100%; }
+
 #signup-form-wrap {
   background-color: #fffffe;
   background-image: url("./../images/signup-image.png");
@@ -336,8 +343,9 @@ p {
   left: 0;
   background: rgba(0, 0, 0, 0.2); }
 
-#map {
-  height: 500px;
-  width: 100%; }
+.spinner-border {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
 
 /*# sourceMappingURL=style.css.map */
