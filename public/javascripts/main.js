@@ -6,6 +6,9 @@ window.onload = () => {
   setAutocomplete();
   startMap();
   templeMarks();
+  hideLoading();
+
+  document.querySelector(".spinner-border").classList.toggle("hidden");
 };
 
 // fix URL problem with Facebook login callback
@@ -45,14 +48,14 @@ async function setAutocomplete() {
     autocomplete({
       input: input,
       emptyMsg: "No hay resultados",
-      fetch: function (text, update) {
+      fetch: function(text, update) {
         text = text.toLowerCase();
         const suggestions = templeNames.filter(n =>
           n.label.toLowerCase().includes(text)
         );
         update(suggestions);
       },
-      onSelect: function (item) {
+      onSelect: function(item) {
         input.value = item.label;
       }
     });
