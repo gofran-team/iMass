@@ -254,9 +254,16 @@ p {
   background: rgba(250, 174, 43, 0.5);
   cursor: pointer; }
 
+#map-wrap {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 0; }
+
 #map {
-  height: 500px;
-  width: 100%; }
+  width: 100%;
+  height: 100vh; }
 
 #signup-form-wrap {
   background-color: #fffffe;
@@ -294,6 +301,10 @@ p {
 
 .saved-favorite i {
   color: red; }
+
+.templeReviewsMapRow {
+  margin-left: 0;
+  margin-right: 0; }
 
 #reviews-box {
   background-color: #fffffe; }

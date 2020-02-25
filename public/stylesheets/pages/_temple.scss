@@ -34,6 +34,11 @@
   color: red;
 }
 
+.templeReviewsMapRow {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 #reviews-box {
   background-color: $card-bg-light;
 
@@ -48,6 +53,7 @@
   }
 }
 
+// modal window to write a new review
 #reviewModal {
   .modal-dialog {
     width: 375px;

@@ -26,18 +26,23 @@
     </div>
   </div>
 
-  <div id="reviews-box" class="col-lg-6 my-2">
-    <div class="py-4">
-      <h4 class="d-inline">Opiniones ({{reviews.length}})</h4>
-      {{#if user}}
-      <button class="new-review-button btn button-primary float-right" data-toggle="modal" data-target="#reviewModal"><i
-          class="fas fa-pencil-alt mr-2"></i>Escribe
-        una opinión</button>
-      {{/if}}
+  <div class="row templeReviewsMapRow">
+    <div id="reviews-box" class="col-lg-6 my-2">
+      <div class="py-4">
+        <h4 class="d-inline">Opiniones ({{reviews.length}})</h4>
+        {{#if user}}
+        <button class="new-review-button btn button-primary float-right" data-toggle="modal"
+          data-target="#reviewModal"><i class="fas fa-pencil-alt mr-2"></i>Escribe
+          una opinión</button>
+        {{/if}}
+      </div>
+      {{#each reviews}}
+      {{> review}}
+      {{/each}}
     </div>
-    {{#each reviews}}
-    {{> review}}
-    {{/each}}
+
+    <div id="map-wrap" class="col-lg-6 my-2">
+      <div id="map"></div>
+    </div>
   </div>
 </div>
-<div id="map"></div>

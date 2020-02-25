@@ -1,4 +1,12 @@
+#map-wrap {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+}
+
 #map {
-    height: 500px;
-    width: 100%;
-   }
+  width: 100%;
+  height: 100vh;
+}
