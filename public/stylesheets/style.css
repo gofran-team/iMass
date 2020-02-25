@@ -22,6 +22,12 @@ a {
     color: #00473e;
     box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6); }
 
+button.btn:focus {
+  box-shadow: none; }
+
+button:focus {
+  outline: none; }
+
 input[type="text"],
 input[type="password"],
 textarea.form-control {
@@ -41,6 +47,9 @@ body {
 
 .hidden {
   display: none; }
+
+.clear {
+  clear: both; }
 
 .row.display-flex {
   display: flex;
@@ -86,6 +95,18 @@ p {
     height: 25px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5); }
+
+#footer-page img#jesus-cross {
+  width: 50px;
+  float: right;
+  margin-right: 20px; }
+
+#footer-page .footer-inner {
+  background-color: #00473e;
+  color: #f2f7f5;
+  font-weight: lighter;
+  font-size: 0.8rem;
+  padding: 2em; }
 
 .temple-card {
   padding: 10px; }
@@ -206,7 +227,10 @@ p {
       text-align: center;
       color: #00473e;
       cursor: pointer;
-      font-size: 20px; }
+      font-size: 20px;
+      transition: color 0.1s ease-in; }
+      .search-bar-wrap .search-bar .search-button:hover {
+        color: #f2f7f5; }
 
 .autocomplete {
   background: rgba(255, 255, 255, 0.95);

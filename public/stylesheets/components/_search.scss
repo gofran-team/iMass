@@ -38,6 +38,11 @@
       color: $text-dark;
       cursor: pointer;
       font-size: 20px;
+      transition: color 0.1s ease-in;
+
+      &:hover {
+        color: $text-sub-bg-dark;
+      }
     }
   }
 }
