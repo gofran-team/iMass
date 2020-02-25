@@ -46,6 +46,8 @@ function templeMarks() {
                 console.log(error);
             })
     }
+    const iconBase = './../images/cruz.png'
+
     //Representamos los marcadores
     function placeTemples(temples) {
         temples.forEach(function (temple) {
@@ -56,7 +58,9 @@ function templeMarks() {
             const pin = new google.maps.Marker({
                 position: center,
                 map: map,
-                title: temple.name
+                title: temple.name,
+                icon: iconBase
+
             });
             markers.push(pin);
         });
@@ -77,40 +81,45 @@ function startMap() {
     let templeId = document.querySelector('#temple-info');
     if (templeId) templeId = templeId.getAttribute('data-temple-id');
     axios.get(`/api/${templeId}`)
-        // pedir todas las iglesias
-        // axios.get("/api")
         .then(response => {
             let temple = response.data.temple;
             const templeLocation = {
                 lat: temple.location.latitude,
-                lng: temple.location.longitude
+                lng: temple.location.longitude,
             };
             // Initialize the map
             const map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: templeLocation
             });
+            const iconBase = './../images/cruz.png'
 
             // Add a marker for Casa Fran
-            const templeMaker = new google.maps.Marker({
+            /*const templeMaker = new google.maps.Marker({
                 position: templeLocation,
+                suppressMarkers: true,
+
+                //icon: iconBase,
                 map: map,
-                title: "Temple"
+                title: temple.name
+
             });
+*/
+
 
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     const user_location = {
                         lat: position.coords.latitude,
-                        lng: position.coords.longitude
+                        lng: position.coords.longitude,
                     };
 
                     //Para unir dos puntos añadimos lo siguiente:
                     const directionRequest = {
                         origin: user_location,
                         destination: templeLocation,
-                        travelMode: 'WALKING'
+                        travelMode: 'WALKING',
                     };
 
                     directionsService.route(
@@ -127,20 +136,26 @@ function startMap() {
                         }
                     );
 
-                    directionsDisplay.setMap(map);
+
+                    //De esta manera eliminamos un segundo icono de la posición del feligrés
+                    directionsDisplay.setMap(map) = new google.maps.DirectionsRenderer({
+                        suppressMarkers: true
+                    });
 
                     // Center map with user location
                     map.setCenter(user_location);
 
                     // Add a marker for your user location
-                    const MyPositionMarker = new google.maps.Marker({
+                    /*const MyPositionMarker = new google.maps.Marker({
                         position: {
                             lat: user_location.lat,
-                            lng: user_location.lng
+                            lng: user_location.lng,
                         },
                         map: map,
                         title: "You are here."
                     });
+                    */
+
 
                 }, function () {
                     console.log('Error in the geolocation service.');
