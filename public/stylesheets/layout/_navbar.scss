@@ -42,6 +42,10 @@
 
       &:focus-within {
         width: 100%;
+
+        input#search {
+          background-color: $card-bg-light;
+        }
       }
     }
   }
@@ -50,10 +54,39 @@
 #userProfile {
   cursor: pointer;
 
+  &:hover > .dropdown-toggle {
+    color: $text-sub-bg-dark;
+  }
+
   img {
     width: 25px;
     height: 25px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .dropdown-toggle {
+    &::after {
+      content: none;
+    }
+  }
+
+  .dropdown-menu {
+    border-radius: 0;
+    background-color: $card-bg-light;
+    left: auto;
+    right: 0;
+    padding: 0;
+
+    a.dropdown-item {
+      color: $text-light;
+      padding-top: 0.7em;
+      padding-bottom: 0.7em;
+
+      &:hover {
+        background-color: $bg-light-color;
+        color: $text-dark;
+      }
+    }
   }
 }
