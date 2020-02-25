@@ -46,5 +46,10 @@ createUsers([
     name: "Mandy",
     image:
       "https://i.dailymail.co.uk/i/pix/2011/04/11/article-0-05A916F40000044D-488_468x286.jpg"
+  },
+  {
+    name: "Willy Toledo",
+    image:
+      "https://imagenes.20minutos.es/files/image_656_370/uploads/imagenes/2018/06/28/720066.jpg"
   }
 ]);

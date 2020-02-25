@@ -29,6 +29,16 @@ a {
   }
 }
 
+button.btn:focus {
+  // box-shadow: 0 0 0 0.2rem rgba($color: $highlight, $alpha: 0.25);
+  box-shadow: none;
+}
+
+button:focus {
+  // outline-color: $highlight;
+  outline: none;
+}
+
 input[type="text"],
 input[type="password"],
 textarea.form-control {
