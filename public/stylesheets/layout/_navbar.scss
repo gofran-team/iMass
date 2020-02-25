@@ -27,6 +27,24 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  .search-bar-wrap {
+    z-index: 9;
+    top: 0;
+    position: relative;
+    max-width: 400px;
+    margin-left: 20px;
+
+    .search-bar {
+      width: 50%;
+      margin: 0;
+      transition: all 0.2s ease-in-out;
+
+      &:focus-within {
+        width: 100%;
+      }
+    }
+  }
 }
 
 #userProfile {

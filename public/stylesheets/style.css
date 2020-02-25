@@ -87,6 +87,18 @@ p {
     width: 100%;
     display: flex;
     justify-content: flex-end; }
+  #menu .search-bar-wrap {
+    z-index: 9;
+    top: 0;
+    position: relative;
+    max-width: 400px;
+    margin-left: 20px; }
+    #menu .search-bar-wrap .search-bar {
+      width: 50%;
+      margin: 0;
+      transition: all 0.2s ease-in-out; }
+      #menu .search-bar-wrap .search-bar:focus-within {
+        width: 100%; }
 
 #userProfile {
   cursor: pointer; }
