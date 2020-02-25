@@ -100,14 +100,33 @@ p {
       transition: all 0.2s ease-in-out; }
       #menu .search-bar-wrap .search-bar:focus-within {
         width: 100%; }
+        #menu .search-bar-wrap .search-bar:focus-within input#search {
+          background-color: #fffffe; }
 
 #userProfile {
   cursor: pointer; }
+  #userProfile:hover > .dropdown-toggle {
+    color: #f2f7f5; }
   #userProfile img {
     width: 25px;
     height: 25px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5); }
+  #userProfile .dropdown-toggle::after {
+    content: none; }
+  #userProfile .dropdown-menu {
+    border-radius: 0;
+    background-color: #fffffe;
+    left: auto;
+    right: 0;
+    padding: 0; }
+    #userProfile .dropdown-menu a.dropdown-item {
+      color: #475d5b;
+      padding-top: 0.7em;
+      padding-bottom: 0.7em; }
+      #userProfile .dropdown-menu a.dropdown-item:hover {
+        background-color: #f2f7f5;
+        color: #00473e; }
 
 #footer-page img#jesus-cross {
   width: 50px;
