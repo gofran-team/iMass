@@ -15,6 +15,7 @@
 .row.display-flex {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .row.display-flex > [class*="col-"] {
