@@ -6,9 +6,8 @@ window.onload = () => {
   setAutocomplete();
   startMap();
   templeMarks();
-  hideLoading();
 
-  document.querySelector(".spinner-border").classList.toggle("hidden");
+  document.querySelector(".spinner-border").classList.add("hidden");
 };
 
 // fix URL problem with Facebook login callback
