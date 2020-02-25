@@ -53,7 +53,8 @@ body {
 
 .row.display-flex {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-content: flex-start; }
 
 .row.display-flex > [class*="col-"] {
   display: flex;
