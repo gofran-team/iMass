@@ -118,14 +118,13 @@ p {
     border-radius: 0;
     background-color: #fffffe;
     left: auto;
-    right: 0;
-    padding: 0; }
+    right: 0; }
     #userProfile .dropdown-menu a.dropdown-item {
       color: #475d5b;
       padding-top: 0.7em;
       padding-bottom: 0.7em; }
       #userProfile .dropdown-menu a.dropdown-item:hover {
-        background-color: #f2f7f5;
+        background-color: #fffffe;
         color: #00473e; }
 
 #footer-page img#jesus-cross {

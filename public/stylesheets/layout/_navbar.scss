@@ -76,7 +76,6 @@
     background-color: $card-bg-light;
     left: auto;
     right: 0;
-    padding: 0;
 
     a.dropdown-item {
       color: $text-light;
@@ -84,7 +83,7 @@
       padding-bottom: 0.7em;
 
       &:hover {
-        background-color: $bg-light-color;
+        background-color: $card-bg-light;
         color: $text-dark;
       }
     }
