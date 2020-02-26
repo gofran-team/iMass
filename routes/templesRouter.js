@@ -79,8 +79,8 @@ router.post("/review", async (req, res, next) => {
 });
 
 // temple search
-router.post("/search", (req, res, next) => {
-  let { search } = req.body;
+router.get("/search", (req, res, next) => {
+  let { search } = req.query;
   Review.aggregate([
     {
       $group: {
