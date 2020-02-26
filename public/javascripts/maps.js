@@ -54,7 +54,7 @@ function templeMarks() {
             const pin = new google.maps.Marker({
                 position: center,
                 map: map,
-                animation: google.maps.Animation.BOUNCE, //DROP
+                animation: google.maps.Animation.DROP,
                 title: temple.name,
                 icon: iconBase,
 
