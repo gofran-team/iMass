@@ -54,17 +54,20 @@ function templeMarks() {
             const pin = new google.maps.Marker({
                 position: center,
                 map: map,
+                animation: google.maps.Animation.BOUNCE, //DROP
                 title: temple.name,
-                icon: iconBase
+                icon: iconBase,
 
             });
+
             markers.push(pin);
-
-
         });
+
+
     }
     getTemples();
 }
+
 
 //Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos.
 const directionsService = new google.maps.DirectionsService;
@@ -74,7 +77,11 @@ const directionsDisplay = new google.maps.DirectionsRenderer;
 
 function startMap() {
     let templeId = document.querySelector('#temple-info');
-    if (templeId) templeId = templeId.getAttribute('data-temple-id');
+    if (templeId) {
+        templeId = templeId.getAttribute('data-temple-id')
+    } else {
+        templeId = ""
+    };
     axios.get(`/api/${templeId}`)
         .then(response => {
             let temple = response.data.temple;
@@ -116,7 +123,6 @@ function startMap() {
                         }
                     );
 
-                    //De esta manera eliminamos un segundo icono de la posición del feligrés
                     directionsDisplay.setMap(map)
                     // Center map with user location
                     map.setCenter(user_location);
