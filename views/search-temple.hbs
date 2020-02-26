@@ -1,14 +1,18 @@
-<div class="container my-4" id="search-results" data-search="{{search}}">
+<div class="container-fluid mb-4 px-0" id="search-results" data-search="{{search}}">
   <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-  <h1 class="my-3">{{found}}</h1>
-  <div class="row display-flex">
-    {{#each temples}}
-    <div class="temple-card col-md-6 col-lg-4" data-aos="fade-up">
-      {{>card}}
+  <div class="row templesFoundMapRow">
+    <div class="col-md-6 row display-flex">
+      <h1 class="col-12 my-3">{{found}}</h1>
+      {{#each temples}}
+      <div class="temple-card col-xl-6" data-aos="fade-up">
+        {{>card}}
+      </div>
+      {{/each}}
     </div>
-    {{/each}}
+    <div id="map-wrap" class="col-md-6">
+      <div id="map"></div>
+    </div>
   </div>
 </div>
-<div id="map"></div>

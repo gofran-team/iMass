@@ -22,6 +22,12 @@ a {
     color: #00473e;
     box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6); }
 
+button.btn:focus {
+  box-shadow: none; }
+
+button:focus {
+  outline: none; }
+
 input[type="text"],
 input[type="password"],
 textarea.form-control {
@@ -42,9 +48,13 @@ body {
 .hidden {
   display: none; }
 
+.clear {
+  clear: both; }
+
 .row.display-flex {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-content: flex-start; }
 
 .row.display-flex > [class*="col-"] {
   display: flex;
@@ -78,14 +88,57 @@ p {
     width: 100%;
     display: flex;
     justify-content: flex-end; }
+  #menu .search-bar-wrap {
+    z-index: 9;
+    top: 0;
+    position: relative;
+    max-width: 400px;
+    margin-left: 20px; }
+    #menu .search-bar-wrap .search-bar {
+      width: 50%;
+      margin: 0;
+      transition: all 0.2s ease-in-out; }
+      #menu .search-bar-wrap .search-bar:focus-within {
+        width: 100%; }
+        #menu .search-bar-wrap .search-bar:focus-within input#search {
+          background-color: #fffffe; }
 
 #userProfile {
   cursor: pointer; }
+  #userProfile:hover > .dropdown-toggle {
+    color: #f2f7f5; }
   #userProfile img {
     width: 25px;
     height: 25px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5); }
+  #userProfile .dropdown-toggle::after {
+    content: none; }
+  #userProfile .dropdown-menu {
+    border-radius: 0;
+    background-color: #fffffe;
+    left: auto;
+    right: 0;
+    padding: 0; }
+    #userProfile .dropdown-menu a.dropdown-item {
+      color: #475d5b;
+      padding-top: 0.7em;
+      padding-bottom: 0.7em; }
+      #userProfile .dropdown-menu a.dropdown-item:hover {
+        background-color: #f2f7f5;
+        color: #00473e; }
+
+#footer-page img#jesus-cross {
+  width: 50px;
+  float: right;
+  margin-right: 20px; }
+
+#footer-page .footer-inner {
+  background-color: #00473e;
+  color: #f2f7f5;
+  font-weight: lighter;
+  font-size: 0.8rem;
+  padding: 2em; }
 
 .temple-card {
   padding: 10px; }
@@ -206,7 +259,10 @@ p {
       text-align: center;
       color: #00473e;
       cursor: pointer;
-      font-size: 20px; }
+      font-size: 20px;
+      transition: color 0.1s ease-in; }
+      .search-bar-wrap .search-bar .search-button:hover {
+        color: #f2f7f5; }
 
 .autocomplete {
   background: rgba(255, 255, 255, 0.95);
@@ -230,9 +286,15 @@ p {
   background: rgba(250, 174, 43, 0.5);
   cursor: pointer; }
 
+#map-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 0; }
+
 #map {
-  height: 500px;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 #signup-form-wrap {
   background-color: #fffffe;
@@ -270,6 +332,10 @@ p {
 
 .saved-favorite i {
   color: red; }
+
+.templeReviewsMapRow {
+  margin-left: 0;
+  margin-right: 0; }
 
 #reviews-box {
   background-color: #fffffe; }
@@ -347,5 +413,10 @@ p {
   position: absolute;
   top: 50%;
   left: 50%; }
+
+.templesFoundMapRow,
+.templesFoundMapRow .row {
+  margin-left: 0;
+  margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */
