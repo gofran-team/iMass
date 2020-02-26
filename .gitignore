@@ -8,4 +8,9 @@ npm-debug.log
 .env
 
 .vscode
+
 .DS_Store
+
+# Sync local database to remote
+syncdbremote.sh
+dump
