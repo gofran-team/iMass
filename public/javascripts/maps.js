@@ -1,3 +1,7 @@
+const markers = []
+const iconBase = './../images/cruz.png'
+
+
 function templeMarks() {
     //Definimos inicio de donde apunta el mapa
     const centerMap = {
@@ -5,8 +9,6 @@ function templeMarks() {
         lng: -3.685211
     };
 
-
-    const markers = []
     //Indicamos que apunte donde habíamos definido 
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 11,
@@ -20,8 +22,6 @@ function templeMarks() {
 
     //Hacemos llamada a AJAX 
     function getTemples() {
-        //const templeId = document.querySelector('input[name="templeID"]').value
-        // pedir una sola iglesia
         let searchTerm = document.getElementById("search-results")
 
         axios.get("/api")
@@ -38,16 +38,12 @@ function templeMarks() {
                     } else {
                         placeTemples(response.data.temples);
                     }
-                } else {
-                    placeTemples([response.data.temple]);
                 }
             })
             .catch(error => {
                 console.log(error);
             })
     }
-    const iconBase = './../images/cruz.png'
-
     //Representamos los marcadores
     function placeTemples(temples) {
         temples.forEach(function (temple) {
@@ -63,13 +59,12 @@ function templeMarks() {
 
             });
             markers.push(pin);
+
+
         });
     }
-
     getTemples();
-
 }
-
 
 //Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos.
 const directionsService = new google.maps.DirectionsService;
@@ -90,23 +85,8 @@ function startMap() {
             // Initialize the map
             const map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
-                center: templeLocation
+                center: templeLocation,
             });
-            const iconBase = './../images/cruz.png'
-
-            // Add a marker for Casa Fran
-            /*const templeMaker = new google.maps.Marker({
-                position: templeLocation,
-                suppressMarkers: true,
-
-                //icon: iconBase,
-                map: map,
-                title: temple.name
-
-            });
-*/
-
-
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -136,33 +116,31 @@ function startMap() {
                         }
                     );
 
-
                     //De esta manera eliminamos un segundo icono de la posición del feligrés
-                    directionsDisplay.setMap(map) = new google.maps.DirectionsRenderer({
-                        suppressMarkers: true
-                    });
-
+                    directionsDisplay.setMap(map)
                     // Center map with user location
                     map.setCenter(user_location);
 
-                    // Add a marker for your user location
-                    /*const MyPositionMarker = new google.maps.Marker({
-                        position: {
-                            lat: user_location.lat,
-                            lng: user_location.lng,
-                        },
-                        map: map,
-                        title: "You are here."
-                    });
-                    */
-
-
                 }, function () {
+                    //Si no geolocaliza, marca el templo
+                    const center = {
+                        lat: temple.location.latitude,
+                        lng: temple.location.longitude
+                    };
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: center
+                    });
+                    const templeMaker = new google.maps.Marker({
+                        position: templeLocation,
+                        icon: iconBase,
+                        map: map,
+                        title: temple.name
+                    })
                     console.log('Error in the geolocation service.');
                 });
             } else {
                 console.log('Browser does not support geolocation.');
             }
-        })
-
+        });
 }
