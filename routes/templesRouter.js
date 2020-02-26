@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
+const {
+  isLoggedIn,
+  isLoggedOut
+} = require("../lib/isLoggedMiddleware");
 const ensureLogin = require("connect-ensure-login");
 const User = require("../models/user");
 const Temple = require("../models/temple");
@@ -14,8 +17,8 @@ router.get("/:id", (req, res, next) => {
   Temple.findById(req.params.id)
     .then(async temple => {
       const reviews = await Review.find({
-        temple
-      })
+          temple
+        })
         .populate("user")
         .sort({
           createdAt: -1
@@ -23,7 +26,7 @@ router.get("/:id", (req, res, next) => {
       const savedFavorite = isTempleFavorite(req.user, temple._id);
       const averageTempleRate = parseFloat(
         reviews.reduce((acc, review) => acc + review.rates.average, 0) /
-          reviews.length
+        reviews.length
       ).toFixed(1);
       return res.render("temple", {
         temple,
@@ -60,7 +63,9 @@ router.post("/:id/mark-favorite", isLoggedIn(), async (req, res, next) => {
 // new review
 router.post("/review", async (req, res, next) => {
   try {
-    const { facilities = 0, cleanliness = 0, priest = 0 } = req.body;
+    const {
+      facilities = 0, cleanliness = 0, priest = 0
+    } = req.body;
     await Review.create({
       temple: mongoose.Types.ObjectId(req.body.temple),
       user: mongoose.Types.ObjectId(req.user.id),
@@ -80,9 +85,10 @@ router.post("/review", async (req, res, next) => {
 
 // temple search
 router.get("/search", (req, res, next) => {
-  let { search } = req.query;
-  Review.aggregate([
-    {
+  let {
+    search
+  } = req.query;
+  Review.aggregate([{
       $group: {
         _id: "$temple",
         average: {
@@ -108,13 +114,12 @@ router.get("/search", (req, res, next) => {
         reviews: 1
       }
     }
-  ]).exec(function(err, reviews) {
+  ]).exec(function (err, reviews) {
     Temple.populate(
-      reviews,
-      {
+      reviews, {
         path: "temple"
       },
-      function(error, temples) {
+      function (error, temples) {
         temples = temples
           .map(t => ({
             id: t.temple._id,
@@ -125,17 +130,16 @@ router.get("/search", (req, res, next) => {
             reviews: t.reviews
           }))
           .filter(t => {
-            const searchExp = new RegExp(search, "i");
-            return searchExp.test(t.name);
+            return t.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
           });
 
         const templesN = temples.length;
         const found =
-          templesN < 1
-            ? "Ningún templo encontrado"
-            : templesN > 1
-            ? `${templesN} templos encontrados`
-            : `${templesN} templo encontrado`;
+          templesN < 1 ?
+          "Ningún templo encontrado" :
+          templesN > 1 ?
+          `${templesN} templos encontrados` :
+          `${templesN} templo encontrado`;
 
         Utils.setDefaultImage(temples);
         if (temples.length === 1)
@@ -154,14 +158,12 @@ router.get("/search", (req, res, next) => {
 // API that serves the name of all the temples
 router.post("/get-names", async (req, res, next) => {
   try {
-    const temples = await Temple.aggregate([
-      {
-        $project: {
-          _id: 0,
-          name: 1
-        }
+    const temples = await Temple.aggregate([{
+      $project: {
+        _id: 0,
+        name: 1
       }
-    ]);
+    }]);
     return res.json(temples);
   } catch (error) {
     console.log(error);
