@@ -36,9 +36,11 @@ const app = express();
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 app.use(cookieParser());
 
 // Session
@@ -77,7 +79,7 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 hbs.registerPartials(__dirname + "/views/partials");
 
-hbs.registerHelper('apiKey', () => process.env.KEY_API);
+hbs.registerHelper("apiKey", () => process.env.GOOGLE_MAPS_API);
 
 // default value for title local
 app.locals.title = "iMass";
