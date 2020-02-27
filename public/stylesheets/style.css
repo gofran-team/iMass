@@ -150,6 +150,10 @@ p {
       height: 200px;
       width: 100%;
       object-fit: cover; }
+    .temple-card .card .distance {
+      position: absolute;
+      right: 1em;
+      bottom: 1em; }
 
 .zoom-box-shadow:hover {
   box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.4);

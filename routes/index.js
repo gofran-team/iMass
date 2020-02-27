@@ -48,6 +48,7 @@ router.get("/", (req, res, next) => {
           id: t.temple._id,
           name: t.temple.name,
           image: t.temple.image,
+          location: t.temple.location,
           average: t.average,
           reviews: t.reviews
         }));
