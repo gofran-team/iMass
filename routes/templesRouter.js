@@ -32,7 +32,7 @@ router.post("/review", async (req, res, next) => {
 
 // temple search
 router.get("/search", (req, res, next) => {
-  let { search } = req.query;
+  let { search = "" } = req.query;
   Review.aggregate([
     {
       $group: {
@@ -168,13 +168,10 @@ router.get("/search/near", (req, res, next) => {
             : `Tienes ${templesN} templo cerca`;
 
         Utils.setDefaultImage(temples);
-        if (temples.length === 1)
-          return res.redirect(`/temple/${temples[0].id}`);
-        else
-          return res.render("search-temple", {
-            temples,
-            found
-          });
+        return res.render("search-temple", {
+          temples,
+          found
+        });
       }
     );
   });

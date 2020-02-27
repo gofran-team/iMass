@@ -101,6 +101,10 @@ p {
       width: 50%;
       margin: 0;
       transition: all 0.2s ease-in-out; }
+      #menu .search-bar-wrap .search-bar .search-text {
+        height: 2.5rem; }
+      #menu .search-bar-wrap .search-bar .search-button {
+        height: 2.5rem; }
       #menu .search-bar-wrap .search-bar:focus-within {
         width: 100%; }
         #menu .search-bar-wrap .search-bar:focus-within input#search {
@@ -241,11 +245,9 @@ p {
     text-align: center;
     font-size: 2rem;
     font-weight: lighter;
-    width: 45%;
     margin: 0 auto 20px;
     color: #fffffe; }
   .search-bar-wrap .search-bar {
-    width: 45%;
     position: relative;
     display: flex;
     margin: 0 auto; }
@@ -257,6 +259,9 @@ p {
       padding: 5px;
       outline: none;
       background-color: rgba(255, 255, 255, 0.9); }
+    .search-bar-wrap .search-bar a.search-button {
+      display: flex;
+      align-items: center; }
     .search-bar-wrap .search-bar .search-button {
       width: 45px;
       height: 2.7rem;

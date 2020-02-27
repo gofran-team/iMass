@@ -40,6 +40,14 @@
       margin: 0;
       transition: all 0.2s ease-in-out;
 
+      .search-text {
+        height: 2.5rem;
+      }
+
+      .search-button {
+        height: 2.5rem;
+      }
+
       &:focus-within {
         width: 100%;
 
