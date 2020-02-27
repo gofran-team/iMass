@@ -35,3 +35,9 @@ function distanceToTemple(lat1, lon1, lat2, lon2, unit = "K") {
   }
   return Number(dist.toFixed(1));
 }
+
+function findNearMe() {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    window.location.href = `/temple/search/near?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`;
+  });
+}

@@ -76,9 +76,9 @@ router.get("/search", (req, res, next) => {
             average: t.average,
             reviews: t.reviews
           }))
-          .filter(t => {
-            return t.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
-          });
+          .filter(
+            t => t.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+          );
 
         const templesN = temples.length;
         const found =
@@ -96,6 +96,84 @@ router.get("/search", (req, res, next) => {
             temples,
             found,
             search
+          });
+      }
+    );
+  });
+});
+
+// search temples near me
+router.get("/search/near", (req, res, next) => {
+  const userLatitude = req.query.lat,
+    userLongitude = req.query.lon;
+  console.log(userLatitude, userLongitude);
+  Review.aggregate([
+    {
+      $group: {
+        _id: "$temple",
+        average: {
+          $avg: "$rates.average"
+        },
+        reviews: {
+          $sum: 1
+        }
+      }
+    },
+    {
+      $sort: {
+        average: -1
+      }
+    },
+    {
+      $project: {
+        _id: 0,
+        temple: "$_id",
+        average: {
+          $trunc: ["$average", 1]
+        },
+        reviews: 1
+      }
+    }
+  ]).exec(function(err, reviews) {
+    Temple.populate(
+      reviews,
+      {
+        path: "temple"
+      },
+      function(error, temples) {
+        temples = temples
+          .map(t => ({
+            id: t.temple._id,
+            name: t.temple.name,
+            image: t.temple.image,
+            location: t.temple.location,
+            distance: Utils.distanceToTemple(
+              userLatitude,
+              userLongitude,
+              t.temple.location.latitude,
+              t.temple.location.longitude
+            ),
+            average: t.average,
+            reviews: t.reviews
+          }))
+          .filter(t => t.distance <= 7) // distance in kilometers
+          .sort((a, b) => a.distance - b.distance);
+
+        const templesN = temples.length;
+        const found =
+          templesN < 1
+            ? "No hay ningún templo cerca"
+            : templesN > 1
+            ? `Tienes ${templesN} templos cerca`
+            : `Tienes ${templesN} templo cerca`;
+
+        Utils.setDefaultImage(temples);
+        if (temples.length === 1)
+          return res.redirect(`/temple/${temples[0].id}`);
+        else
+          return res.render("search-temple", {
+            temples,
+            found
           });
       }
     );

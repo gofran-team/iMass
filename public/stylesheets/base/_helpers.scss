@@ -10,6 +10,10 @@
   clear: both;
 }
 
+.no-border-radius {
+  border-radius: 0;
+}
+
 // columns with the same height in a row
 
 .row.display-flex {

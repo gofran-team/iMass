@@ -1,5 +1,5 @@
 const markers = [];
-const iconBase = "./../images/cruz.png";
+const iconBase = "/images/cruz.png";
 
 function templeMarks() {
   //Definimos inicio de donde apunta el mapa

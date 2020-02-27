@@ -51,6 +51,9 @@ body {
 .clear {
   clear: both; }
 
+.no-border-radius {
+  border-radius: 0; }
+
 .row.display-flex {
   display: flex;
   flex-wrap: wrap;
