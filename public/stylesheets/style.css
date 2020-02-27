@@ -308,9 +308,8 @@ p {
   height: 100%; }
 
 #content {
-  background-color: #CCCCCC;
-  padding: 5px;
-  font-weight: 400; }
+  max-width: 350px;
+  padding: 5px; }
   #content h6 {
     text-align: center; }
 
