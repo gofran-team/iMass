@@ -8,13 +8,11 @@
     text-align: center;
     font-size: 2rem;
     font-weight: lighter;
-    width: 45%;
     margin: 0 auto 20px;
     color: $text-bg-dark;
   }
 
   .search-bar {
-    width: 45%;
     position: relative;
     display: flex;
     margin: 0 auto;
@@ -27,6 +25,11 @@
       padding: 5px;
       outline: none;
       background-color: rgba($color: white, $alpha: 0.9);
+    }
+
+    a.search-button {
+      display: flex;
+      align-items: center;
     }
 
     .search-button {

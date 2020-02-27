@@ -1,12 +1,16 @@
 <div class="home-wrap">
   <form method="GET" action="/temple/search" class="search-bar-wrap">
-    <p class="home-claim">Todas las iglesias y parróquias de Madrid valoradas por expertos feligreses</p>
-    <div class="search-bar">
+    <p class="home-claim col-sm-10 col-md-8 col-lg-6">Todas las iglesias y parróquias de Madrid valoradas por expertos
+      feligreses</p>
+    <div class="search-bar col-sm-10 col-md-8 col-lg-6">
       <input name="search" id="search" class="search-text" type="text" placeholder="Busca tu templo" autofocus
         autocomplete="off">
       <button type="submit" class="search-button">
         <i class="fa fa-search"></i>
       </button>
+      <a class="btn search-button no-border-radius ml-1 px-2" onclick="findNearMe()">
+        <i class="fas fa-location-arrow"></i>
+      </a>
     </div>
   </form>
 </div>

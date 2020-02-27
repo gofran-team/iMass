@@ -4,6 +4,7 @@ window.onload = () => {
   AOS.init();
   listeners();
   setAutocomplete();
+  navigator.geolocation.getCurrentPosition(setDistances);
 
   if (document.querySelector("#search-results")) templeMarks();
   else if (document.getElementById("temple-info")) startMap();

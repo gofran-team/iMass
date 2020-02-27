@@ -1,10 +1,9 @@
 const markers = []
-const iconBase = './../images/cruz.png'
-const iconParishioner = './../images/jesus.png'
+const iconBase = '/images/cruz.png'
+const iconParishioner = '/images/jesus.png'
 //Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos.
 const directionsService = new google.maps.DirectionsService;
 const directionsDisplay = new google.maps.DirectionsRenderer;
-
 
 function templeMarks() {
     //Definimos inicio de donde apunta el mapa
