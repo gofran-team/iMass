@@ -313,6 +313,9 @@ p {
   #content h6 {
     text-align: center; }
 
+.gm-style-mtc {
+  font-size: 8; }
+
 #signup-form-wrap {
   background-color: #fffffe;
   background-image: url("./../images/signup-image.png");
