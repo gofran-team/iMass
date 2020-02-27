@@ -36,7 +36,11 @@ const app = express();
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 app.use(cookieParser());
 
 // Session
@@ -45,7 +49,9 @@ app.use(
     secret: "imass secret",
     resave: true,
     saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
   })
 );
 
@@ -72,6 +78,8 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 hbs.registerPartials(__dirname + "/views/partials");
+
+hbs.registerHelper("apiKey", () => process.env.GOOGLE_MAPS_API);
 
 // default value for title local
 app.locals.title = "iMass";

@@ -20,6 +20,9 @@ function templeMarks() {
         lng: undefined
     };
 
+    var legend = document.getElementById('legend');
+
+
     //Hacemos llamada a AJAX 
     function getTemples() {
         let searchTerm = document.getElementById("search-results")
@@ -44,25 +47,41 @@ function templeMarks() {
                 console.log(error);
             })
     }
+
     //Representamos los marcadores
     function placeTemples(temples) {
         temples.forEach(function (temple) {
+            let nameToLC = (temple.name).toUpperCase()
+            let contentString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h6 id="firstHeading" class="firstHeading">' + nameToLC + '</h6>' +
+                '<div id="bodyContent">' +
+                '<p><b>Description: </b> ' + temple.description + ' </p>' +
+                '<p>Visit this Temple: <a href="http://localhost:3000/temple/' + temple._id + '">' +
+                'http://localhost:3000/temple/' + temple._id + '</a> ' +
+                '</div>' +
+                '</div>';
+            let infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
             const center = {
                 lat: temple.location.latitude,
                 lng: temple.location.longitude
             };
+
             const pin = new google.maps.Marker({
                 position: center,
                 map: map,
-                animation: google.maps.Animation.BOUNCE, //DROP
+                animation: google.maps.Animation.DROP,
                 title: temple.name,
                 icon: iconBase,
-
             });
-
+            pin.addListener('click', function () {
+                infowindow.open(map, pin);
+            });
             markers.push(pin);
         });
-
 
     }
     getTemples();
