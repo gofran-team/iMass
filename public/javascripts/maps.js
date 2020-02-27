@@ -1,5 +1,9 @@
 const markers = []
 const iconBase = './../images/cruz.png'
+const iconParishioner = './../images/jesus.png'
+//Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos.
+const directionsService = new google.maps.DirectionsService;
+const directionsDisplay = new google.maps.DirectionsRenderer;
 
 
 function templeMarks() {
@@ -80,17 +84,28 @@ function templeMarks() {
             pin.addListener('click', function () {
                 infowindow.open(map, pin);
             });
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const user_location = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    const user = new google.maps.Marker({
+                        position: user_location,
+                        map: map,
+                        animation: google.maps.Animation.DROP,
+                        title: 'You are here',
+                        icon: iconParishioner,
+                    });
+                })
+            }
             markers.push(pin);
         });
+
 
     }
     getTemples();
 }
-
-
-//Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos.
-const directionsService = new google.maps.DirectionsService;
-const directionsDisplay = new google.maps.DirectionsRenderer;
 
 //Function maps
 
