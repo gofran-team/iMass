@@ -1,5 +1,9 @@
 const markers = [];
 const iconBase = "/images/cruz.png";
+const iconParishioner = "/images/jesus.png";
+//Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos
+const directionsService = new google.maps.DirectionsService();
+const directionsDisplay = new google.maps.DirectionsRenderer();
 
 function templeMarks() {
   //Definimos inicio de donde apunta el mapa
@@ -19,6 +23,9 @@ function templeMarks() {
     lng: undefined
   };
 
+  var legend = document.getElementById("legend");
+
+  // get all the temples coordinates of its card
   function getTemples() {
     const templesCards = [...document.querySelectorAll(".temple-card-info")];
     const templesData = templesCards.map(t => ({
@@ -34,10 +41,34 @@ function templeMarks() {
   //Representamos los marcadores
   function placeTemples(temples) {
     temples.forEach(function(temple) {
+      let nameToLC = temple.name.toUpperCase();
+      let contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h6 id="firstHeading" class="firstHeading">' +
+        nameToLC +
+        "</h6>" +
+        '<div id="bodyContent">' +
+        "<p><b>Description: </b> " +
+        temple.description +
+        " </p>" +
+        '<p>Visit this Temple: <a href="http://localhost:3000/temple/' +
+        temple._id +
+        '">' +
+        "http://localhost:3000/temple/" +
+        temple._id +
+        "</a>" +
+        "</div>" +
+        "</div>";
+      let infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
       const center = {
         lat: temple.location.latitude,
         lng: temple.location.longitude
       };
+
       const pin = new google.maps.Marker({
         position: center,
         map: map,
@@ -45,16 +76,30 @@ function templeMarks() {
         title: temple.name,
         icon: iconBase
       });
-
+      pin.addListener("click", function() {
+        infowindow.open(map, pin);
+      });
       markers.push(pin);
     });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const user_location = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        const user = new google.maps.Marker({
+          position: user_location,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: "You are here",
+          icon: iconParishioner
+        });
+      });
+    }
   }
   getTemples();
 }
-
-//Si queremos dibujar rutas entre dos pines, debemos instanciar DirectionService y DirectionRendererobjetos.
-const directionsService = new google.maps.DirectionsService();
-const directionsDisplay = new google.maps.DirectionsRenderer();
 
 //Function maps
 function startMap() {

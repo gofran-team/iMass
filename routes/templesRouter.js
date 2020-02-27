@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const router = express.Router();
 const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
@@ -8,6 +10,7 @@ const Review = require("../models/review");
 const mongoose = require("mongoose");
 const isTempleFavorite = require("../lib/isTempleFavorite");
 const Utils = require("../lib/utils");
+const distanceToSearch = process.env.NEAR_DISTANCE || 1;
 
 // new review
 router.post("/review", async (req, res, next) => {
@@ -156,7 +159,7 @@ router.get("/search/near", (req, res, next) => {
             average: t.average,
             reviews: t.reviews
           }))
-          .filter(t => t.distance <= 7) // distance in kilometers
+          .filter(t => t.distance <= distanceToSearch)
           .sort((a, b) => a.distance - b.distance);
 
         const templesN = temples.length;
