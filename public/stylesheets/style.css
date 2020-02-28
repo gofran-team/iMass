@@ -369,6 +369,43 @@ p {
     width: 30px;
     object-fit: cover; }
 
+.filter-rate-block {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fffffe;
+  border: 1px solid rgba(71, 93, 91, 0.2);
+  transition: all 0.2s ease-in; }
+  .filter-rate-block:hover {
+    border-color: rgba(71, 93, 91, 0.5); }
+  .filter-rate-block.active {
+    background-color: #00473e;
+    color: #fffffe; }
+  .filter-rate-block span {
+    font-size: 0.8rem; }
+  .filter-rate-block .filter-rate-wrap {
+    height: 12.5px;
+    width: 62.5px;
+    background-image: url("./../images/sacred-host-back.svg");
+    background-repeat: repeat-x; }
+    .filter-rate-block .filter-rate-wrap .rate-4 {
+      width: 80%; }
+    .filter-rate-block .filter-rate-wrap .rate-3 {
+      width: 60%; }
+    .filter-rate-block .filter-rate-wrap .rate-2 {
+      width: 40%; }
+    .filter-rate-block .filter-rate-wrap .rate-1 {
+      width: 20%; }
+    .filter-rate-block .filter-rate-wrap .filter-rate {
+      height: 100%;
+      transition: width 1s ease-in;
+      overflow: hidden; }
+      .filter-rate-block .filter-rate-wrap .filter-rate .filter-hosts-icons {
+        background-image: url("./../images/sacred-host.svg");
+        background-repeat: repeat-x;
+        height: 100%;
+        width: 1000px; }
+
 #reviewModal .modal-dialog {
   width: 375px; }
 
