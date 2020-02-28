@@ -439,4 +439,13 @@ p {
   margin-left: 0;
   margin-right: 0; }
 
+#error {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center; }
+  #error #not-found {
+    width: 70vw; }
+  #error .mt-5 {
+    margin-top: 0rem !important; }
+
 /*# sourceMappingURL=style.css.map */
