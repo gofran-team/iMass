@@ -53,6 +53,61 @@
   }
 }
 
+.filter-rate-block {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: $card-bg-light;
+  border: 1px solid rgba($color: $text-light, $alpha: 0.2);
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    border-color: rgba($color: $text-light, $alpha: 0.5);
+  }
+
+  &.active {
+    background-color: $bg-dark-color;
+    color: $text-bg-dark;
+  }
+
+  span {
+    font-size: 0.8rem;
+  }
+
+  .filter-rate-wrap {
+    height: 12.5px;
+    width: 62.5px;
+    background-image: url("./../images/sacred-host-back.svg");
+    background-repeat: repeat-x;
+
+    .rate-4 {
+      width: 80%;
+    }
+    .rate-3 {
+      width: 60%;
+    }
+    .rate-2 {
+      width: 40%;
+    }
+    .rate-1 {
+      width: 20%;
+    }
+
+    .filter-rate {
+      height: 100%;
+      transition: width 1s ease-in;
+      overflow: hidden;
+
+      .filter-hosts-icons {
+        background-image: url("./../images/sacred-host.svg");
+        background-repeat: repeat-x;
+        height: 100%;
+        width: 1000px;
+      }
+    }
+  }
+}
+
 // modal window to write a new review
 #reviewModal {
   .modal-dialog {

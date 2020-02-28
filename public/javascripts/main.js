@@ -28,13 +28,19 @@ function showAlerts() {
   });
 }
 
-function listeners() {
+function openTempleOnClick() {
+  // open the URL of the temple
   const templeCards = document.querySelectorAll(".temple-card .card");
   templeCards.forEach(card =>
     card.addEventListener("click", e => {
       window.location = card.getAttribute("data-url");
     })
   );
+}
+
+function listeners() {
+  openTempleOnClick();
+  toggleFilterButton();
 }
 
 async function setAutocomplete() {

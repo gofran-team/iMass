@@ -4,12 +4,53 @@
   </div>
   <div class="row templesFoundMapRow">
     <div class="col-md-6 row display-flex">
-      <h1 class="col-12 my-3">{{found}}</h1>
-      {{#each temples}}
-      <div class="temple-card col-xl-6" data-aos="fade-up">
-        {{>card}}
+
+      <div class="filters mt-3">
+        <div class="filter-rate-block d-inline-block mt-1" onclick="filterTemples(4)">
+          <div class="filter-rate-wrap d-inline-block align-middle mr-1">
+            <div class="filter-rate rate-4">
+              <div class="filter-hosts-icons"></div>
+            </div>
+          </div>
+          <span class="mr-2">4 o más</span>
+        </div>
+        <div class="filter-rate-block d-inline-block mt-1" onclick="filterTemples(3)">
+          <div class="filter-rate-wrap d-inline-block align-middle mr-1">
+            <div class="filter-rate rate-3">
+              <div class="filter-hosts-icons"></div>
+            </div>
+          </div>
+          <span class="mr-2">3 o más</span>
+        </div>
+        <div class="filter-rate-block d-inline-block mt-1" onclick="filterTemples(2)">
+          <div class="filter-rate-wrap d-inline-block align-middle mr-1">
+            <div class="filter-rate rate-2">
+              <div class="filter-hosts-icons"></div>
+            </div>
+          </div>
+          <span class="mr-2">2 o más</span>
+        </div>
+        <div class="filter-rate-block d-inline-block mt-1" onclick="filterTemples(1)">
+          <div class="filter-rate-wrap d-inline-block align-middle mr-1">
+            <div class="filter-rate rate-1">
+              <div class="filter-hosts-icons"></div>
+            </div>
+          </div>
+          <span class="mr-2">1 o más</span>
+        </div>
+        <div class="filter-rate-block d-inline-block mt-1 active" onclick="filterTemples(0)">
+          <span>Todos</span>
+        </div>
       </div>
-      {{/each}}
+
+      <h1 class="col-12 my-3">{{found}}</h1>
+      <div id="searchResults" class="row">
+        {{#each temples}}
+        <div class="temple-card col-xl-6" data-aos="fade-up">
+          {{>card}}
+        </div>
+        {{/each}}
+      </div>
     </div>
     <div id="map-wrap" class="col-md-6">
       <div id="map"></div>
