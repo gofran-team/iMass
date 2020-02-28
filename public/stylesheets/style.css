@@ -143,8 +143,11 @@ p {
   background-color: #00473e;
   color: #f2f7f5;
   font-weight: lighter;
-  font-size: 0.8rem;
   padding: 2em; }
+  #footer-page .footer-inner small {
+    font-weight: lighter; }
+  #footer-page .footer-inner a:hover {
+    color: #faae2b; }
 
 .temple-card {
   padding: 10px; }

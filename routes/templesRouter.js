@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const express = require("express");
 const router = express.Router();
 const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
@@ -10,7 +8,7 @@ const Review = require("../models/review");
 const mongoose = require("mongoose");
 const isTempleFavorite = require("../lib/isTempleFavorite");
 const Utils = require("../lib/utils");
-const distanceToSearch = process.env.NEAR_DISTANCE || 1;
+const distanceToSearch = 1;
 
 // new review
 router.post("/review", async (req, res, next) => {

@@ -9,7 +9,14 @@
     background-color: $bg-dark-color;
     color: $text-sub-bg-dark;
     font-weight: lighter;
-    font-size: 0.8rem;
     padding: 2em;
+
+    small {
+      font-weight: lighter;
+    }
+
+    a:hover {
+      color: $highlight;
+    }
   }
 }
