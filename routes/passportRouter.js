@@ -18,7 +18,7 @@ router.get("/signup", isLoggedOut(), (req, res) => {
 router.post("/signup", isLoggedOut(), async (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    req.flash("error", "Please, fill all the fields");
+    req.flash("error", "Por favor, rellena todos los campos");
     return res.redirect("/auth/signup");
   }
   try {
@@ -48,7 +48,7 @@ router.post("/signup", isLoggedOut(), async (req, res, next) => {
       );
       return res.redirect("/auth/signup");
     } else {
-      req.flash("error", "The user or password already exists");
+      req.flash("error", "Ese usuario ya existe. Prueba con otro.");
       return res.redirect("/auth/signup");
     }
   } catch (e) {
@@ -63,7 +63,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "back",
     failureRedirect: "back",
-    failureFlash: true,
+    failureFlash: { message: "¡Ups! Algo falló al intentar iniciar la sesión" },
     successFlash: true,
     passReqToCallback: true
   })
