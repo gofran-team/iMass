@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const Utils = require("../lib/utils");
 
 const randomNum = n => Math.round(Math.random() * n);
+let totalReviews = 0;
 
 const writeReviews = async () => {
   await mongoose.connect(process.env.DBURL, {
@@ -42,14 +43,17 @@ const writeReviews = async () => {
         comment: lorem
       };
 
-      try {
-        await Review.create(review);
-        console.log(`${temple.name} review added`);
-      } catch (error) {
-        console.log(error);
+      if (Math.round(Math.random()) === 0) {
+        try {
+          await Review.create(review);
+          console.log(`${temple.name} review added`);
+          totalReviews++;
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
-    console.log(`${temples.length} reviews were created`);
+    console.log(`${totalReviews} reviews were created`);
   } catch (error) {
     console.log(error);
   } finally {
