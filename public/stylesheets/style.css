@@ -74,40 +74,44 @@ h6 {
 p {
   color: text-light; }
 
-#menu {
+nav#menu {
+  padding-left: 3rem;
+  padding-right: 3rem;
   background-color: #00473e; }
-  #menu.menu-home {
+  nav#menu.menu-home {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
     position: absolute;
-    z-index: 1;
+    z-index: 999;
     width: 100%; }
-  #menu #logo-menu {
+  nav#menu .navbar-flex {
+    display: contents; }
+  nav#menu #logo-menu {
     background-image: url("./../images/logo-menu.svg");
     width: 62.5px;
     height: 23.125px; }
-  #menu .authBtn {
+  nav#menu .authBtn {
     background-color: transparent; }
-  #menu #menuItems {
+  nav#menu #menuItems {
     width: 100%;
     display: flex;
     justify-content: flex-end; }
-  #menu .search-bar-wrap {
+  nav#menu .search-bar-wrap {
     z-index: 9;
     top: 0;
     position: relative;
-    max-width: 400px;
+    max-width: 500px;
     margin-left: 20px; }
-    #menu .search-bar-wrap .search-bar {
-      width: 50%;
+    nav#menu .search-bar-wrap .search-bar {
+      width: 60%;
       margin: 0;
       transition: all 0.2s ease-in-out; }
-      #menu .search-bar-wrap .search-bar .search-text {
+      nav#menu .search-bar-wrap .search-bar .search-text {
         height: 2.5rem; }
-      #menu .search-bar-wrap .search-bar .search-button {
+      nav#menu .search-bar-wrap .search-bar .search-button {
         height: 2.5rem; }
-      #menu .search-bar-wrap .search-bar:focus-within {
+      nav#menu .search-bar-wrap .search-bar:focus-within {
         width: 100%; }
-        #menu .search-bar-wrap .search-bar:focus-within input#search {
+        nav#menu .search-bar-wrap .search-bar:focus-within input#search {
           background-color: #fffffe; }
 
 #userProfile {
@@ -133,6 +137,46 @@ p {
       #userProfile .dropdown-menu a.dropdown-item:hover {
         background-color: #fffffe;
         color: #00473e; }
+
+#userProfileMobile {
+  display: none; }
+
+@media (max-width: 991px) {
+  nav#menu {
+    padding-left: 1rem;
+    padding-right: 1rem; }
+    nav#menu.menu-home {
+      background: #00473e;
+      position: relative; }
+      nav#menu.menu-home .navbar-flex {
+        justify-content: space-between; }
+    nav#menu .navbar-flex {
+      width: 100%;
+      display: flex;
+      flex-flow: row; }
+    nav#menu .navbar-brand {
+      margin-right: 1rem;
+      margin-left: 0; }
+    nav#menu .search-bar-wrap {
+      flex: 1 1 auto;
+      margin-left: 0; }
+    nav#menu .search-bar-wrap .search-bar {
+      width: 100%; }
+    nav#menu .navbar-toggler {
+      order: 2;
+      margin-left: 0.5rem; }
+    nav#menu #userProfile {
+      display: none; }
+    nav#menu #menuItems {
+      display: none; }
+    nav#menu #userProfileMobile {
+      display: block; }
+      nav#menu #userProfileMobile a {
+        display: block;
+        padding: 0.4rem 0;
+        color: #fffffe; }
+        nav#menu #userProfileMobile a::first-child {
+          margin-top: 0.5rem; } }
 
 #footer-page img#jesus-cross {
   height: 37.5px;
@@ -360,6 +404,9 @@ p {
   margin-left: 0;
   margin-right: 0; }
 
+button.new-review-button {
+  float: right; }
+
 #reviews-box {
   background-color: #fffffe; }
   #reviews-box .card {
@@ -452,6 +499,16 @@ p {
   left: 0;
   color: #faae2b; }
 
+@media (max-width: 575px) {
+  button.new-review-button {
+    float: none;
+    margin-top: 20px; }
+  .temple-description {
+    max-height: 100px;
+    overflow: scroll; }
+  #reviewModal .modal-dialog {
+    width: 360px; } }
+
 .home-wrap {
   width: 100%;
   height: 72vh;
@@ -478,15 +535,6 @@ p {
 .templesFoundMapRow .row {
   margin-left: 0;
   margin-right: 0; }
-
-#error {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center; }
-  #error #not-found {
-    width: 70vw; }
-  #error .mt-5 {
-    margin-top: 0rem !important; }
 
 #error-404 {
   position: relative;
@@ -522,5 +570,8 @@ p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
+
+#error-page {
+  height: calc(100vh - 264.5px); }
 
 /*# sourceMappingURL=style.css.map */
