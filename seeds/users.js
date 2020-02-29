@@ -13,7 +13,7 @@ const createUsers = async users => {
       const existUser = await User.findOne({ username: user.name });
       if (!existUser) {
         const salt = bcrypt.genSaltSync(10);
-        const hashPass = bcrypt.hashSync("awesomepassword", salt);
+        const hashPass = bcrypt.hashSync("qwerty1234", salt);
         const newUser = {
           username: user.name,
           password: hashPass,
@@ -51,5 +51,15 @@ createUsers([
     name: "Willy Toledo",
     image:
       "https://imagenes.20minutos.es/files/image_656_370/uploads/imagenes/2018/06/28/720066.jpg"
+  },
+  {
+    name: "Timothy Lovejoy",
+    image:
+      "https://pbs.twimg.com/profile_images/1004659596/reverend_lovejoy_400x400.jpg"
+  },
+  {
+    name: "Rita Maestre",
+    image:
+      "https://m.eldiario.es/sociedad/Rita-Maestre-portavoz-Ayuntamiento-Madrid_EDIIMA20160212_0613_4.jpg"
   }
 ]);
