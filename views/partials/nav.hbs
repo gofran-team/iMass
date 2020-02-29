@@ -1,10 +1,10 @@
-<nav id="menu" class="navbar navbar-expand-lg navbar-dark px-5 {{#if menuHome}}menu-home{{/if}}">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav id="menu" class="navbar navbar-expand-lg navbar-dark {{#if menuHome}}menu-home{{/if}}">
+  <div class="navbar-flex">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse py-1" id="navbarNavAltMarkup">
     <a class="navbar-brand" href="/">
       <div id="logo-menu"></div>
     </a>
@@ -23,6 +23,9 @@
       </div>
     </form>
     {{/unless}}
+  </div>
+
+  <div class="collapse navbar-collapse py-1" id="navbarNavAltMarkup">
 
     <div id="menuItems" class="navbar-nav ml-auto">
       {{#unless user}}
@@ -49,5 +52,17 @@
       </div>
     </div>
     {{/if}}
+
+    <div id="userProfileMobile">
+      {{#if user}}
+      <a href="/user/favorites"><i class="fas fa-heart mr-2"></i>Mis favoritos</a>
+      <a href="/auth/logout"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</a>
+      {{/if}}
+      {{#unless user}}
+      <a href="/auth/signup"><i class="fas fa-user-edit mr-2"></i>Registrarse</a>
+      <a data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt mr-2"></i>Iniciar sesión</a>
+      {{/unless}}
+    </div>
+
   </div>
 </nav>
