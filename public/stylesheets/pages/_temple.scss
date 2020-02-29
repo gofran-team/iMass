@@ -39,6 +39,10 @@
   margin-right: 0;
 }
 
+button.new-review-button {
+  float: right;
+}
+
 #reviews-box {
   background-color: $card-bg-light;
 
@@ -68,10 +72,6 @@
   &.active {
     background-color: $bg-dark-color;
     color: $text-bg-dark;
-  }
-
-  &.disabled {
-    background-color: orangered;
   }
 
   span {
@@ -167,5 +167,23 @@
     position: absolute;
     left: 0;
     color: $highlight;
+  }
+}
+
+@media (max-width: 575px) {
+  button.new-review-button {
+    float: none;
+    margin-top: 20px;
+  }
+
+  .temple-description {
+    max-height: 100px;
+    overflow: scroll;
+  }
+
+  #reviewModal {
+    .modal-dialog {
+      width: 360px;
+    }
   }
 }

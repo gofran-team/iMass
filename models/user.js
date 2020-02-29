@@ -7,7 +7,7 @@ const userSchema = new Schema(
     password: String,
     facebookId: String,
     facebookToken: String,
-    image: { type: String, default: "./../images/default-profile.jpg" },
+    image: { type: String, default: "/images/default-profile.jpg" },
     favorites: [{ type: Schema.Types.ObjectId, ref: "Temple" }]
   },
   {

@@ -15,7 +15,7 @@
         </div>
         <p><i class="fas fa-map-marker-alt"></i> {{temple.address.streetAddress}} - {{temple.address.postalCode}} -
           {{temple.address.locality}}</p>
-        <p>{{temple.description}}</p>
+        <p class="temple-description">{{temple.description}}</p>
       </div>
       {{#if user}}
       <button id="btn-favorite"
@@ -31,8 +31,8 @@
       <div class="py-4">
         <h4 class="d-inline">Opiniones ({{reviews.length}})</h4>
         {{#if user}}
-        <button class="new-review-button btn button-primary float-right" data-toggle="modal"
-          data-target="#reviewModal"><i class="fas fa-pencil-alt mr-2"></i>Escribe
+        <button class="new-review-button btn button-primary" data-toggle="modal" data-target="#reviewModal"><i
+            class="fas fa-pencil-alt mr-2"></i>Escribe
           una opinión</button>
         {{/if}}
       </div>

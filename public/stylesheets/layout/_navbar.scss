@@ -1,4 +1,7 @@
-#menu {
+nav#menu {
+  padding-left: 3rem;
+  padding-right: 3rem;
+
   background-color: $bg-dark-color;
 
   &.menu-home {
@@ -8,8 +11,12 @@
       rgba(0, 0, 0, 0.4) 100%
     );
     position: absolute;
-    z-index: 1;
+    z-index: 999;
     width: 100%;
+  }
+
+  .navbar-flex {
+    display: contents;
   }
 
   #logo-menu {
@@ -36,7 +43,7 @@
     margin-left: 20px;
 
     .search-bar {
-      width: 50%;
+      width: 60%;
       margin: 0;
       transition: all 0.2s ease-in-out;
 
@@ -93,6 +100,73 @@
       &:hover {
         background-color: $card-bg-light;
         color: $text-dark;
+      }
+    }
+  }
+}
+
+#userProfileMobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  nav#menu {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &.menu-home {
+      background: $bg-dark-color;
+      position: relative;
+
+      .navbar-flex {
+        justify-content: space-between;
+      }
+    }
+
+    .navbar-flex {
+      width: 100%;
+      display: flex;
+      flex-flow: row;
+    }
+
+    .navbar-brand {
+      margin-right: 1rem;
+      margin-left: 0;
+    }
+
+    .search-bar-wrap {
+      flex: 1 1 auto;
+      margin-left: 0;
+    }
+
+    .search-bar-wrap .search-bar {
+      width: 100%;
+    }
+
+    .navbar-toggler {
+      order: 2;
+      margin-left: 0.5rem;
+    }
+
+    #userProfile {
+      display: none;
+    }
+
+    #menuItems {
+      display: none;
+    }
+
+    #userProfileMobile {
+      display: block;
+
+      a {
+        display: block;
+        padding: 0.4rem 0;
+        color: $text-bg-dark;
+
+        &::first-child {
+          margin-top: 0.5rem;
+        }
       }
     }
   }

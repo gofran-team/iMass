@@ -107,7 +107,6 @@ router.get("/search", (req, res, next) => {
 router.get("/search/near", (req, res, next) => {
   const userLatitude = req.query.lat,
     userLongitude = req.query.lon;
-  console.log(userLatitude, userLongitude);
   Review.aggregate([
     {
       $group: {
