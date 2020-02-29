@@ -15,8 +15,14 @@ const filterTemples = rate => {
   templesFiltered.forEach(temple => {
     filteredResults += temple.outerHTML;
   });
-  document.querySelector("#searchResults").innerHTML = filteredResults;
-  openTempleOnClick();
+
+  if (filteredResults) {
+    document.querySelector("#searchResults").innerHTML = filteredResults;
+    openTempleOnClick();
+  } else {
+    document.querySelector("#searchResults").innerHTML =
+      "<p>No hay ningún templo que responda a los criterios seleccionados.</p>";
+  }
 };
 
 // toggle class 'active' of the filter buttons

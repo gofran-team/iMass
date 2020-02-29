@@ -70,6 +70,10 @@
     color: $text-bg-dark;
   }
 
+  &.disabled {
+    background-color: orangered;
+  }
+
   span {
     font-size: 0.8rem;
   }

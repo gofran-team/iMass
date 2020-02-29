@@ -1,17 +1,3 @@
-#error {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-
-  #not-found {
-    width: 70vw;
-  }
-
-  .mt-5 {
-    margin-top: 0rem !important;
-  }
-}
-
 #error-404 {
   position: relative;
   margin-bottom: -37.5px;
