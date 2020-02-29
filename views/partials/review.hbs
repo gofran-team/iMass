@@ -1,0 +1,39 @@
+<div class="card review">
+  <div class="card-body">
+    <img src="{{this.user.image}}" alt="Profile image" class="mr-2 rounded-circle"><span>{{this.user.username}}</span>
+    <span class="small mt-2 float-right">{{this.date}}</span>
+    <div class="rate-block">
+      <h4 class="d-inline-block mr-1">{{this.rates.average}}</h4>
+      <div class="rate-wrap d-inline-block align-baseline mt-3">
+        <div class="rate" data-rate="{{this.rates.average}}">
+          <div class="hosts-icons"></div>
+        </div>
+      </div>
+    </div>
+    <div class="rate-block d-inline-block">
+      <i class="fas fa-church mr-1"></i><span class="mr-1">Instalaciones</span>
+      <div class="rate-wrap rate-wrap-small d-inline-block align-middle mr-2">
+        <div class="rate" data-rate="{{this.rates.facilities}}">
+          <div class="hosts-icons"></div>
+        </div>
+      </div>
+    </div>
+    <div class="rate-block d-inline-block">
+      <i class="fas fa-broom mr-1"></i><span class="mr-1">Limpieza</span>
+      <div class="rate-wrap rate-wrap-small d-inline-block align-middle mr-2">
+        <div class="rate" data-rate="{{this.rates.cleanliness}}">
+          <div class="hosts-icons"></div>
+        </div>
+      </div>
+    </div>
+    <div class="rate-block d-inline-block">
+      <i class="fas fa-user mr-1"></i><span class="mr-1">Párroco</span>
+      <div class="rate-wrap rate-wrap-small d-inline-block align-middle mr-2">
+        <div class="rate" data-rate="{{this.rates.priest}}">
+          <div class="hosts-icons"></div>
+        </div>
+      </div>
+    </div>
+    <p class="review-comment card-text text-justify mt-3">{{this.comment}}</p>
+  </div>
+</div>

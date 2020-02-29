@@ -1,0 +1,53 @@
+<nav id="menu" class="navbar navbar-expand-lg navbar-dark px-5 {{#if menuHome}}menu-home{{/if}}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse py-1" id="navbarNavAltMarkup">
+    <a class="navbar-brand" href="/">
+      <div id="logo-menu"></div>
+    </a>
+
+    {{#unless menuHome}}
+    <form method="GET" action="/temple/search" class="search-bar-wrap">
+      <div class="search-bar">
+        <input name="search" id="search" class="search-text" type="text" placeholder="Busca tu templo"
+          autocomplete="off">
+        <button type="submit" class="search-button">
+          <i class="fa fa-search"></i>
+        </button>
+        <a class="btn search-button no-border-radius ml-1 px-2" onclick="findNearMe()">
+          <i class="fas fa-location-arrow"></i>
+        </a>
+      </div>
+    </form>
+    {{/unless}}
+
+    <div id="menuItems" class="navbar-nav ml-auto">
+      {{#unless user}}
+      <a class="authBtn nav-item nav-link btn btn-light btn-sm mr-2" href="/auth/signup">Registrarse</a>
+      <a class="authBtn nav-item nav-link btn btn-light btn-sm" data-toggle="modal" data-target="#loginModal">Iniciar
+        sesión</a>
+      {{/unless}}
+    </div>
+
+    {{#if user}}
+    <div id="userProfile" class="dropdown ml-auto">
+      <div class="navbar-text dropdown-toggle" data-toggle="dropdown">
+        {{#unless user.image}}
+        <i class="fas fa-user mr-1"></i>
+        {{/unless}}
+        {{#if user.image}}
+        <img src="{{user.image}}" alt="Profile image" class="mr-2 rounded-circle">
+        {{/if}}
+        {{user.username}}
+      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="/user/favorites"><i class="fas fa-heart mr-2"></i>Mis favoritos</a>
+        <a class="dropdown-item" href="/auth/logout"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</a>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</nav>

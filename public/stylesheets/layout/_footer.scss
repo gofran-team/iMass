@@ -1,0 +1,23 @@
+#footer-page {
+  img#jesus-cross {
+    // width: 50px;
+    height: 37.5px;
+    float: right;
+    margin-right: 20px;
+  }
+
+  .footer-inner {
+    background-color: $bg-dark-color;
+    color: $text-sub-bg-dark;
+    font-weight: lighter;
+    padding: 2em;
+
+    small {
+      font-weight: lighter;
+    }
+
+    a:hover {
+      color: $highlight;
+    }
+  }
+}

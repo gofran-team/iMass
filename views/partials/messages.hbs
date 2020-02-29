@@ -1,0 +1,17 @@
+{{#if errors}}
+{{#each errors}}
+<div class="message">
+  <div class="bubble">{{this}}</div>
+  <img src="/images/flanders-error.png">
+</div>
+{{/each}}
+{{/if}}
+
+{{#if success}}
+{{#each success}}
+<div class="message">
+  <div class="bubble">{{this}}</div>
+  <img src="/images/flanders-success.png">
+</div>
+{{/each}}
+{{/if}}

@@ -1,0 +1,41 @@
+.review .card-body {
+  border-top: 1px solid rgba($color: $text-light, $alpha: 0.3);
+  background-color: $card-bg-light;
+}
+
+.rate-block {
+  span {
+    font-size: 0.8rem;
+  }
+
+  .rate-wrap {
+    height: 18.75px;
+    width: 93.75px;
+    background-image: url("./../images/sacred-host-back.svg");
+    background-repeat: repeat-x;
+
+    .rate {
+      height: 100%;
+      width: 0%;
+      transition: width 1s ease-in;
+      overflow: hidden;
+
+      .hosts-icons {
+        background-image: url("./../images/sacred-host.svg");
+        background-repeat: repeat-x;
+        height: 100%;
+        width: 1000px;
+      }
+    }
+  }
+
+  .rate-wrap-small {
+    height: 12.5px;
+    width: 62.5px;
+  }
+}
+
+.review-comment {
+  font-weight: lighter;
+  font-size: 0.9rem;
+}

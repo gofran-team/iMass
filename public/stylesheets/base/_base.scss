@@ -1,0 +1,51 @@
+body {
+  background: $bg-light-color;
+  color: $text-light;
+}
+
+a {
+  color: $highlight;
+
+  &:hover {
+    color: $text-dark;
+  }
+}
+
+.txt-dark {
+  color: $text-dark;
+}
+.txt-light {
+  color: $text-light;
+}
+
+.button-primary {
+  background-color: $btn-primary;
+  color: $text-dark;
+  font-weight: bold;
+
+  &:hover {
+    color: $text-dark;
+    box-shadow: 0 5px 15px -10px rgba(31, 18, 53, 0.6);
+  }
+}
+
+button.btn:focus {
+  box-shadow: none;
+}
+
+button:focus {
+  // outline-color: $highlight;
+  outline: none;
+}
+
+input[type="text"],
+input[type="password"],
+textarea.form-control {
+  color: $text-light;
+
+  &:focus {
+    color: $text-light;
+    border-color: $highlight;
+    box-shadow: 0 0 0.2rem $highlight;
+  }
+}

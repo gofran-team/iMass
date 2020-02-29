@@ -1,0 +1,167 @@
+#templeHeader {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  margin-top: 1em;
+  color: $text-bg-dark;
+  position: relative;
+
+  #infoTemple {
+    position: absolute;
+    bottom: 0;
+    padding: 1em 2em;
+
+    h1,
+    h4 {
+      color: $text-bg-dark;
+    }
+  }
+
+  .darkLayer {
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+}
+
+.saved-favorite i {
+  color: red;
+}
+
+.templeReviewsMapRow {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#reviews-box {
+  background-color: $card-bg-light;
+
+  .card {
+    border: none;
+  }
+
+  .card-body img {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+  }
+}
+
+.filter-rate-block {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: $card-bg-light;
+  border: 1px solid rgba($color: $text-light, $alpha: 0.2);
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    border-color: rgba($color: $text-light, $alpha: 0.5);
+  }
+
+  &.active {
+    background-color: $bg-dark-color;
+    color: $text-bg-dark;
+  }
+
+  span {
+    font-size: 0.8rem;
+  }
+
+  .filter-rate-wrap {
+    height: 12.5px;
+    width: 62.5px;
+    background-image: url("./../images/sacred-host-back.svg");
+    background-repeat: repeat-x;
+
+    .rate-4 {
+      width: 80%;
+    }
+    .rate-3 {
+      width: 60%;
+    }
+    .rate-2 {
+      width: 40%;
+    }
+    .rate-1 {
+      width: 20%;
+    }
+
+    .filter-rate {
+      height: 100%;
+      transition: width 1s ease-in;
+      overflow: hidden;
+
+      .filter-hosts-icons {
+        background-image: url("./../images/sacred-host.svg");
+        background-repeat: repeat-x;
+        height: 100%;
+        width: 1000px;
+      }
+    }
+  }
+}
+
+// modal window to write a new review
+#reviewModal {
+  .modal-dialog {
+    width: 375px;
+  }
+
+  form label {
+    color: $bg-dark-color;
+  }
+
+  .txt-center {
+    text-align: center;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .clear {
+    float: none;
+    clear: both;
+  }
+
+  .rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+  }
+
+  .rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+  }
+
+  .rating > label:hover,
+  .rating > label:hover ~ label,
+  .rating > input.radio-btn:checked ~ label {
+    color: transparent;
+  }
+
+  .rating > label:hover:before,
+  .rating > label:hover ~ label:before,
+  .rating > input.radio-btn:checked ~ label:before,
+  .rating > input.radio-btn:checked ~ label:before {
+    content: "\25C9";
+    position: absolute;
+    left: 0;
+    color: $highlight;
+  }
+}

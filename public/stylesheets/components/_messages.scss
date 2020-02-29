@@ -1,0 +1,28 @@
+.message {
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  right: -473px;
+  transition: all 0.5s ease-in;
+
+  img {
+    height: 200px;
+  }
+
+  .bubble {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid $bg-dark-color;
+    box-shadow: 0 0 20px rgba($color: $shadow-dark, $alpha: 0.3);
+    color: $text-light;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 300px;
+  }
+}
+
+.showAlert {
+  right: 0;
+}

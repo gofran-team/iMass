@@ -1,0 +1,17 @@
+<div class="card zoom-box-shadow temple-card-info" data-url="/temple/{{this.id}}" data-temple-name="{{this.name}}"
+  data-temple-latitude="{{this.location.latitude}}" data-temple-longitude="{{this.location.longitude}}">
+  <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <div class="rate-block">
+      <h4 class="d-inline-block mr-1">{{this.average}}</h4>
+      <div class="rate-wrap d-inline-block align-baseline mt-1">
+        <div class="rate" data-rate="{{this.average}}">
+          <div class="hosts-icons"></div>
+        </div>
+      </div>
+      <span class="ml-2 d-inline-block align-middle pb-2">{{this.reviews}} opiniones</span>
+      <span class="distance d-inline-block"></span>
+    </div>
+  </div>
+</div>

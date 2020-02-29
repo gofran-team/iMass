@@ -1,0 +1,28 @@
+.vh-extend {
+  height: 85vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.no-border-radius {
+  border-radius: 0;
+}
+
+// columns with the same height in a row
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.row.display-flex > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
