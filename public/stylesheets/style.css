@@ -562,7 +562,7 @@ button.new-review-button {
     top: 0;
     left: 0;
     background: rgba(64, 1, 1, 0.25);
-    background: linear-gradient(0deg, #400101 0%, rgba(64, 1, 1, 0) 40%, rgba(64, 1, 1, 0) 60%, #400101 100%);
+    background: linear-gradient(0deg, #400101 0%, rgba(64, 1, 1, 0) 40%);
     z-index: 1; }
   #error-404 #video-error {
     position: absolute;

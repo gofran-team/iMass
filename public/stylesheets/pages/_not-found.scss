@@ -27,19 +27,11 @@
     height: 100%;
     top: 0;
     left: 0;
-    // background: rgba($color: $bg-dark-color, $alpha: 0.25);
-    // background: linear-gradient(
-    //   0deg,
-    //   rgba($color: $bg-dark-color, $alpha: 1) 0%,
-    //   rgba($color: $bg-dark-color, $alpha: 0) 40%
-    // );
     background: rgba($color: #400101, $alpha: 0.25);
     background: linear-gradient(
       0deg,
       rgba($color: #400101, $alpha: 1) 0%,
-      rgba($color: #400101, $alpha: 0) 40%,
-      rgba($color: #400101, $alpha: 0) 60%,
-      rgba($color: #400101, $alpha: 1) 100%
+      rgba($color: #400101, $alpha: 0) 40%
     );
 
     z-index: 1;
