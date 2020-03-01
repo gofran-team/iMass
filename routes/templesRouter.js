@@ -56,7 +56,7 @@ router.get("/search", (req, res, next) => {
         _id: 0,
         temple: "$_id",
         average: {
-          $trunc: ["$average", 1]
+          $round: ["$average", 1]
         },
         reviews: 1
       }
@@ -129,7 +129,7 @@ router.get("/search/near", (req, res, next) => {
         _id: 0,
         temple: "$_id",
         average: {
-          $trunc: ["$average", 1]
+          $round: ["$average", 1]
         },
         reviews: 1
       }

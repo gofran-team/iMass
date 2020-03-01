@@ -16,6 +16,11 @@
     h4 {
       color: $text-bg-dark;
     }
+
+    .temple-description {
+      max-height: 110px;
+      overflow: scroll;
+    }
   }
 
   .darkLayer {

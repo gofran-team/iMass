@@ -391,6 +391,9 @@ nav#menu {
     #templeHeader #infoTemple h1,
     #templeHeader #infoTemple h4 {
       color: #fffffe; }
+    #templeHeader #infoTemple .temple-description {
+      max-height: 110px;
+      overflow: scroll; }
   #templeHeader .darkLayer {
     width: 100%;
     height: 100%;
