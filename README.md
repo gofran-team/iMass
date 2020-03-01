@@ -2,7 +2,7 @@
 
 https://imass-app.herokuapp.com/
 
-![Home Img](imgages/readme.png?raw=true)
+![Home Img](images/readme.png?raw=true)
 
 # iMass: el TripAdvisor de los templos católicos de Madrid.
 
@@ -65,7 +65,7 @@ Api de Templos e iglesias católicas del ayuntamiento de Madrid.
 El primer reto al que nos enfrentamos fue encontar un tema sobre el que realizar este proyecto.
 Lo siguiente que hicimos, fue realizar los esquemas de los modelos, con los datos que ibamos a necesitar y como conectarían entre las diferentes colecciones. Diseñamos el diagrama de flujo para tener presente de forma gráfica los diferentes procesos:
 
-![Diagrama flujo img](imgages/diagramadeflujo.png?raw=true)
+![Diagrama flujo img](images/diagramadeflujo.png?raw=true)
 
 El siguiente paso, fue desarrollar la lógica (rutas, seeds, vistas, modelos, middlewares, etc.).
 
@@ -79,7 +79,7 @@ Finalmente, la maquetación y diseño responsive.
 
 Entender y utilizar el metodo Populate de Mongoose.
 
-![Populate code](imgages/populatecode.png?raw=true)
+![Populate code](images/populatecode.png?raw=true)
 
 Implementar y conocer el funcionamiento de googlemapsApi, especialmente en conseguir que el mapa se adaptase al número de marcadores que devolvía la consulta.
 
