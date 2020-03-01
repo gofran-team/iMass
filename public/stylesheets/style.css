@@ -561,8 +561,8 @@ button.new-review-button {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 71, 62, 0.25);
-    background: linear-gradient(0deg, #00473e 0%, rgba(0, 71, 62, 0) 40%);
+    background: rgba(64, 1, 1, 0.25);
+    background: linear-gradient(0deg, #400101 0%, rgba(64, 1, 1, 0) 40%, rgba(64, 1, 1, 0) 60%, #400101 100%);
     z-index: 1; }
   #error-404 #video-error {
     position: absolute;
@@ -573,6 +573,12 @@ button.new-review-button {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
+
+body.hell-layout nav#menu {
+  background-color: #400101; }
+
+body.hell-layout footer#footer-page .footer-inner {
+  background-color: #400101; }
 
 #error-page {
   height: calc(100vh - 264.5px); }

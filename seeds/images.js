@@ -21,7 +21,7 @@ const getImages = async () => {
         params: {
           key: process.env.GOOGLE_KEY,
           cx: process.env.GOOGLE_CX,
-          q: temple.name,
+          q: `${temple.name} ${temple.address.locality}`,
           searchType: "image",
           fileType: "jpg",
           cr: true,
