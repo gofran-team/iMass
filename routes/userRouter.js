@@ -76,4 +76,108 @@ router.get("/favorites", isLoggedIn(), (req, res, next) => {
   });
 });
 
+router.get("/", isLoggedIn(), (req, res, next) => {
+  User.find()
+    .then(userDB => {
+      res.render("users", {
+        users: userDB
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+router.post("/", isLoggedIn(), (req, res, next) => {
+  const newUser = {
+    title: req.body.name,
+    password: req.body.password,
+    image: req.body.image
+  };
+
+  User.create(newUser)
+    .then(() => {
+      res.render("users/new");
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+/*router.get("/new", isLoggedIn(), (req, res, next) => {
+  res.render("users/new");
+});
+*/
+
+router.get("/:id", isLoggedIn(), (req, res, next) => {
+  User.findById(req.params.id)
+    .then(theUser => {
+      res.render("users/show", {
+        users: theUser
+      });
+    })
+
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+router.post("/:id", isLoggedIn(), (req, res, next) => {
+  User.updateOne(
+    {
+      _id: req.body.id
+    },
+    {
+      username: req.body.username,
+      // password: req.body.password,
+      image: req.body.image
+    }
+  )
+    .then(() => {
+      res.redirect("/user");
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+router.post("/delete/:id", isLoggedIn(), (req, res, next) => {
+  User.findByIdAndDelete(req.body.id)
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+router.get("/edit/:id", isLoggedIn(), (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.render("users/edit", user);
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+router.post("/edit/:id", isLoggedIn(), (req, res, next) => {
+  User.findOne({
+    _id: req.body.id
+  })
+    .then(user => {
+      res.render("users/edit", user);
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
 module.exports = router;
