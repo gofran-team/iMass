@@ -32,7 +32,7 @@ router.get("/favorites", isLoggedIn(), (req, res, next) => {
         _id: 0,
         temple: "$_id",
         average: {
-          $trunc: ["$average", 1]
+          $round: ["$average", 1]
         },
         reviews: 1
       }
