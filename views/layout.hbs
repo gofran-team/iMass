@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
-<body>
+<body {{#if error404}}class="hell-layout" {{/if}}>
   {{>login}}
   {{>nav}}
   {{{body}}}
