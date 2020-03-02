@@ -543,7 +543,7 @@ button.new-review-button {
   position: relative;
   margin-bottom: -37.5px;
   overflow: hidden;
-  background-color: #475d5b;
+  background-color: #400101;
   height: calc(100vh - 212px); }
   #error-404 h1 {
     font-size: 3rem;
@@ -573,9 +573,6 @@ button.new-review-button {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
-
-body.hell-layout nav#menu {
-  background-color: #400101; }
 
 body.hell-layout footer#footer-page .footer-inner {
   background-color: #400101; }

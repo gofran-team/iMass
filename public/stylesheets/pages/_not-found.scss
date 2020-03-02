@@ -2,7 +2,7 @@
   position: relative;
   margin-bottom: -37.5px;
   overflow: hidden;
-  background-color: $text-light;
+  background-color: #400101;
   height: calc(100vh - 212px);
 
   h1 {
@@ -51,7 +51,7 @@
 
 body.hell-layout {
   nav#menu {
-    background-color: #400101;
+    // background-color: #400101;
   }
 
   footer#footer-page .footer-inner {
