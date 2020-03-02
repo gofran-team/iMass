@@ -1,89 +1,147 @@
-# iMass
+Live demo: https://imass-app.herokuapp.com/
 
-https://imass-app.herokuapp.com/
+![Home Img](https://github.com/gofran-team/iMass/raw/develop/public/images/home.png?raw=true)
 
-![Home Img](images/readme.png?raw=true)
+# iMass. El TripAdvisor de los templos religiosos
 
-# iMass: el TripAdvisor de los templos católicos de Madrid.
+iMass es una aplicación para encontrar, valorar, consultar y guardar como favorito cualquier templo católico de la ciudad de Madrid.
 
-iMass es una aplicación con la que puedes encontrar, valorar, consultar y/o marcar como favoritos cualquier templo católico de la ciudad de Madrid, ya sea desde tu dispositivo móvil, como en tu tablet u ordenador de sobremesa.
+## Home
 
-## Home:
+### Registrarse e iniciar sesión
 
-### Registrarse y/o Iniciar Sesión
+En la parte superior derecha encontrarás los botones para registrarte o iniciar sesión, pudiendo hacerlo con usuario y contraseña, o con una cuenta de Facebook. Una vez registrado, podrás guardar tus templos favoritos y hacer tus reseñas, valorando tres aspectos: las instalaciones, la limpieza y al párroco.
 
-En la parte superior derecha, encontrarás los botones donde podrás registrarte y/o iniciar sesión, pudiendo hacerlo con Usuario y Contraseña o con Login social de Facebook. Una vez registrado, podrás guardar tus templos favoritos, los cuales podrás consultar cada vez que inicies sesión. Tambiém podrás dejar tus comentarios y valorarlos teniendo en cuenta tres factores: Párroco, Limpieza e Instalaciones.
+### Buscador
 
-### Buscador:
+En este espacio podrás buscar por el nombre de la iglesia. El buscador te sugerirá todas las iglésias, basílicas, etc., que coincidan con el texto introducido a modo de autocompletado. También podrás hacer una búsqueda geoespacial, encontrando todos los templos que se encuentren en un radio de un kilómetro de tu posición.
 
-En este espacio podrás buscar tanto por un templo especifico, como por cualquier palabra. El buscador te devolverá todas las iglésias, basílicas, etc. que coincidan con el texto introducido. A medida que vas escribiendo, aparecerá un desplegable con dichas coincidencias.
-También podrás hacer una busqueda geoespacial, devolviendo todos los templos que se encuentren en un rádio de un kilometro de tu posición.
+### Los más valorados
 
-### Más valorados:
+En la parte inferior encontrarás los 6 templos mejor valorados y a qué distancia se encuentran de tu ubicación.
 
-Podrás ver los 6 mejor valorados entre los 387 templos de la ciudad y a qué distancia se encuentran de tu ubicación.
+## Ficha del templo
 
-## Ficha del templo:
+Puedes consultar los datos de cada uno de los templos: la ficha completa, los comentarios realizados por los feligreses, las valoraciones individuales y la media de todas ellas, así como la ruta para llegar andando desde tu posición. En el caso de haber iniciado sesión, también podrás guardarlo como favorito o dejar tu propia opinión y valoración.
 
-Puedes consultar cada uno de los templos, ver su ficha completa, todos sus comentarios, valoraciones individuales y média de todas ellas, así como la ruta para llegar andando desde donde te encuentres.
-En el caso de estár logueado, también podrás guardarlo como favorito
+## Templos encontrados
 
-## Templos encontrados:
+Tanto en la búsqueda geoespacial como por nombre, podrás ver en el mapa todos los templos encontrados por estos criterios, así como tú ubicación, pudiendo pulsar en cada uno de ellos dentro del mapa, donde se muestra el nombre y el enlace a su ficha. En esta página, tambiém podrás filtrarlos por su valoración media.
 
-Tanto en la busqueda geoespacial como por coincidencia de texto, podrás ver en el mapa todos los templos encontrados por estos criterioos, así como tú ubicación, pudiendo clicar en cada uno de ellos dentro del mapa, para ver su nombre y poder ir desde ahí a la ficha de cada uno de ellos.
-En esta página, tambiém podrás filtrarlos por valoración, desde una o más hostias, hasta todos los encontrados.
+## Extras
 
-## Extras:
-
-- Contraseña encriptada con Bycript
-- Evaluador de contraseñas, sólo permitiendo introducir las que contengan al menos una letra mayúscula, una minúscula, un numero y un mínimo de 8 dígitos.
-- Controlador de errores personaizado. En caso de algún error o requisito no cumplido, aparecerá en la parte inferior derecha nuestro amigo Flanders para avisarnos.
-- Icónos de marcadores de google maps personalizados y animados.
+- Rutas privadas protegidas. Solo en caso de haber iniciado sesión tendrás acceso a ciertas funcionalides.
+- Contraseña encriptada con Bycript.
+- Evaluador de contraseñas, solo permitiendo introducir las que contengan al menos una letra mayúscula, una minúscula, un número y un mínimo de 8 dígitos.
+- Controlador de errores personaizado. En caso de algún error o requisito no cumplido, aparecerá en la parte inferior derecha nuestro amigo Ned Flanders para avisarnos.
+- Iconos de marcadores de Google Maps personalizados y animados.
 - Ajuste del zoom de los mapas, dependiendo de los resultados obtenidos en cada búsqueda.
 - Página de error 404 personalizada.
 
-## Proyecto realizado por:
+## Proyecto realizado por
 
-Gonzalo Hernandez y Francisco Molleda.
+Gonzalo Hernández y Francisco Molleda.
 
-## Proyecto realizado con:
+## Proyecto realizado con
 
 Node.js.
-Espress.
+Express.
 Mongoose.
-Ajax.
+AJAX.
 Axios.
 Handlebars.
 Passport.
 Sass.
 Bootstrap.
-GoogleMapsApi.
-Api de Templos e iglesias católicas del ayuntamiento de Madrid.
+Google Custom Search JSON API.
+Google Maps API.
+API de templos e iglesias católicas del ayuntamiento de Madrid.
 
-## Proceso:
+## Proceso
 
-El primer reto al que nos enfrentamos fue encontar un tema sobre el que realizar este proyecto.
-Lo siguiente que hicimos, fue realizar los esquemas de los modelos, con los datos que ibamos a necesitar y como conectarían entre las diferentes colecciones. Diseñamos el diagrama de flujo para tener presente de forma gráfica los diferentes procesos:
+El primer reto al que nos enfrentamos fue encontar un tema sobre el que realizar este proyecto. Después, realizamos los esquemas de los modelos, con los datos que íbamos a necesitar y las relaciones entre las diferentes colecciones. Diseñamos un diagrama de flujo para tener presente de forma gráfica los diferentes procesos.
 
-![Diagrama flujo img](images/diagramadeflujo.png?raw=true)
+![Diagrama flujo img](https://github.com/gofran-team/iMass/raw/develop/public/images/diagramadeflujo.png?raw=true)
 
 El siguiente paso, fue desarrollar la lógica (rutas, seeds, vistas, modelos, middlewares, etc.).
 
-Desarrollo e implementación de mapas a través de googlemapsApi.
+Desarrollo e implementación de mapas a través de Google Maps API.
 
 Finalmente, la maquetación y diseño responsive.
 
-## Dificultades:
+## Dificultades
 
-### Francisco Molleda:
+Entender y utilizar el método <b>populate</b> y el constructor <b>aggregate</b> de Mongoose.
 
-Entender y utilizar el metodo Populate de Mongoose.
+```javascript
+Temple.findById(req.params.id)
+  .then(async temple => {
+    const reviews = await Review.find({
+      temple
+    })
+      .populate("user")
+      .sort({
+        createdAt: -1
+      });
+```
 
-![Populate code](images/populatecode.png?raw=true)
+```javascript
+Review.aggregate([
+  {
+    $group: {
+      _id: "$temple",
+      average: {
+        $avg: "$rates.average"
+      },
+      reviews: {
+        $sum: 1
+      }
+    }
+  },
+  {
+    $sort: {
+      average: -1
+    }
+  },
+  {
+    $limit: 6
+  },
+  {
+    $project: {
+      _id: 0,
+      temple: "$_id",
+      average: {
+        $round: ["$average", 1]
+      },
+      reviews: 1
+    }
+  }
+]).exec(function(err, bestReviews) {
+  Temple.populate(
+    bestReviews,
+    {
+      path: "temple"
+    },
+    function(error, bestTemples) {
+      const temples = bestTemples.map(t => ({
+        id: t.temple._id,
+        name: t.temple.name,
+        image: t.temple.image,
+        location: t.temple.location,
+        average: t.average,
+        reviews: t.reviews
+      }));
+      Utils.setDefaultImage(temples);
+      return res.render("index", {
+        temples,
+        menuHome: true
+      });
+    }
+  );
+});
+```
 
-Implementar y conocer el funcionamiento de googlemapsApi, especialmente en conseguir que el mapa se adaptase al número de marcadores que devolvía la consulta.
-
-### Gonzalo Henandez:
+Implementar y conocer el funcionamiento de Google Maps API; especialmente conseguir que el mapa se adaptase al número de marcadores que devolvía la consulta. Así como implementar los datos devueltos por la base de datos en los diferentes mapas.
 
 # Licence
 
@@ -91,4 +149,4 @@ Por favor, consulte `LICENSE.md`
 
 # Contributing
 
-Si quiere contribuir con este proyecto, estaríamos encantados `CONTRIBUTING.md`
+Si quieres contribuir con este proyecto, estaríamos encantados `CONTRIBUTING.md`
