@@ -33,7 +33,7 @@ Tanto en la búsqueda geoespacial como por nombre, podrás ver en el mapa todos 
 - Rutas privadas protegidas. Solo en caso de haber iniciado sesión tendrás acceso a ciertas funcionalides.
 - Contraseña encriptada con Bycript.
 - Evaluador de contraseñas, solo permitiendo introducir las que contengan al menos una letra mayúscula, una minúscula, un número y un mínimo de 8 dígitos.
-- Controlador de errores personaizado. En caso de algún error o requisito no cumplido, aparecerá en la parte inferior derecha nuestro amigo Ned Flanders para avisarnos.
+- Controlador de errores personalizado. En caso de algún error o requisito no cumplido, aparecerá en la parte inferior un mensaje flash para avisarnos.
 - Iconos de marcadores de Google Maps personalizados y animados.
 - Ajuste del zoom de los mapas, dependiendo de los resultados obtenidos en cada búsqueda.
 - Página de error 404 personalizada.
