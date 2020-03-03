@@ -14,3 +14,4 @@ npm-debug.log
 # Sync local database to remote
 syncdbremote.sh
 dump
+_assets
