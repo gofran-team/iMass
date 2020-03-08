@@ -1,6 +1,6 @@
 Live demo: https://imass-app.herokuapp.com/
 
-![Home Img](https://github.com/gofran-team/iMass/raw/develop/public/images/home.png?raw=true)
+![Home Img](https://user-images.githubusercontent.com/54455748/76162907-1c5fd600-6142-11ea-8834-f39ed7779757.png)
 
 # iMass. El TripAdvisor de los templos religiosos
 
@@ -61,7 +61,7 @@ API de templos e iglesias católicas del ayuntamiento de Madrid.
 
 El primer reto al que nos enfrentamos fue encontar un tema sobre el que realizar este proyecto. Después, realizamos los esquemas de los modelos, con los datos que íbamos a necesitar y las relaciones entre las diferentes colecciones. Diseñamos un diagrama de flujo para tener presente de forma gráfica los diferentes procesos.
 
-![Diagrama flujo img](https://github.com/gofran-team/iMass/raw/develop/public/images/diagramadeflujo.png?raw=true)
+![Diagrama flujo img](https://user-images.githubusercontent.com/54455748/76162926-41ecdf80-6142-11ea-8f90-5e7f9692db25.png)
 
 El siguiente paso, fue desarrollar la lógica (rutas, seeds, vistas, modelos, middlewares, etc.).
 
